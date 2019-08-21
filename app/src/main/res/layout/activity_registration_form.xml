@@ -26,6 +26,7 @@
             android:textColor="#FFFFFF"
             android:background="@drawable/et_bg"
             android:hint="@string/full_name_hint"
+            android:textSize="16dp"
             android:inputType="textEmailAddress"
             android:padding="16dp"
             android:textColorHint="@color/login_form_details"
@@ -40,6 +41,7 @@
             android:layout_marginTop="25dp"
             android:background="@drawable/et_bg"
             android:hint="@string/email_address"
+            android:textSize="16dp"
             android:inputType="textEmailAddress"
             android:padding="16dp"
             android:textColorHint="@color/login_form_details"
@@ -55,6 +57,7 @@
             android:background="@drawable/et_bg"
             android:hint="@string/password"
             android:inputType="textPassword"
+            android:textSize="16dp"
             android:padding="16dp"
             android:textColorHint="@color/login_form_details"
             />
@@ -69,6 +72,7 @@
             android:textColor="#FFFFFF"
             android:hint="@string/confirmpassword"
             android:inputType="textPassword"
+            android:textSize="16dp"
             android:padding="16dp"
             android:textColorHint="@color/login_form_details"
             />
@@ -82,11 +86,13 @@
             android:background="@drawable/et_bg"
             android:hint="@string/institution"
             android:textColor="#FFFFFF"
+            android:textSize="16dp"
             android:padding="16dp"
             android:textColorHint="@color/login_form_details"
             />
 
         <LinearLayout
+            android:layout_marginLeft="61dp"
             android:layout_width="198dp"
             android:layout_height="73dp"
             android:layout_marginTop="25dp"
@@ -96,8 +102,9 @@
                 android:layout_width="102dp"
                 android:layout_height="38dp"
                 android:text="@string/gender"
+
                 android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                android:textSize="16dp" />
             <RadioGroup
                 android:id="@+id/gender_radiogroup_id"
                 android:layout_width="wrap_content"
@@ -108,7 +115,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/male"
+                    android:textSize="16dp"
                     android:textColor="#F5F4F4"
+                    android:outlineSpotShadowColor="#FFFFFF"
+                    android:shadowColor="#FFFFFF"
 
                     />
                 <RadioButton
@@ -116,15 +126,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/female"
+                    android:textSize="16dp"
+                    android:outlineSpotShadowColor="#FFFFFF"
+                    android:shadowColor="#FFFFFF"
                     android:textColor="#F5F4F4"
                     />
             </RadioGroup>
         </LinearLayout>
 
         <LinearLayout
+
             android:layout_width="198dp"
             android:layout_height="73dp"
-
+            android:layout_marginLeft="61dp"
             android:layout_marginTop="25dp"
             android:orientation="horizontal">
 
@@ -134,7 +148,7 @@
                 android:layout_height="38dp"
                 android:text="@string/usertype"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                android:textSize="16dp"/>
             <RadioGroup
                 android:id="@+id/usetype_radiogroup_id"
                 android:layout_width="wrap_content"
@@ -145,13 +159,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/student"
+                    android:outlineSpotShadowColor="#FFFFFF"
+                    android:shadowColor="#FFFFFF"
+                    android:textSize="16dp"
                     android:textColor="#F5F4F4"
                     />
                 <RadioButton
                     android:id="@+id/register_teacher_id"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:outlineSpotShadowColor="#FFFFFF"
+                    android:shadowColor="#FFFFFF"
                     android:text="@string/teacher"
+                    android:textSize="16dp"
                     android:textColor="#F5F4F4"
                     />
             </RadioGroup>

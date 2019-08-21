@@ -31,6 +31,8 @@
         android:hint="@string/email_address"
         android:inputType="textEmailAddress"
         android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp"
         android:textColorHint="#ccffffff"
         />
 
@@ -42,6 +44,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="28dp"
+        android:textSize="16dp"
+        android:textColor="#FFFFFF"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/et_bg"
@@ -69,32 +73,35 @@
 
     <TextView
         android:id="@+id/forget_password_id"
-        android:layout_width="126dp"
+        android:layout_width="wrap_content"
         android:layout_height="24dp"
+        android:layout_gravity="center"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:paddingLeft="9dp"
-        android:layout_gravity="center"
         android:text="Forget Password?"
         android:textColor="#FCFCFC"
-        />
+        android:textSize="15dp" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+         android:gravity="center"
         android:orientation="horizontal">
         <TextView
             android:layout_width="170dp"
             android:layout_height="32dp"
-            android:layout_marginStart="84dp"
-            android:layout_marginLeft="84dp"
+
+
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
+            android:textSize="15dp"
             android:paddingLeft="9dp"
             android:text="Don't have an account?"
             android:textColor="#FCFCFC"
@@ -104,8 +111,9 @@
             android:id="@+id/register_id"
             android:layout_width="66dp"
             android:layout_height="32dp"
-            android:layout_marginTop="8dp"
-            android:paddingLeft="10dp"
+
+
+            android:textSize="15dp"
             android:text="Register"
             android:textColor="#081983"
 
