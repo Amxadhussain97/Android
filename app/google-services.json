@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "997147105514",
+    "firebase_url": "https://hometutor-38d82.firebaseio.com",
+    "project_id": "hometutor-38d82",
+    "storage_bucket": "hometutor-38d82.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997147105514:android:8e507219041e8eda",
+        "android_client_info": {
+          "package_name": "com.example.hometutor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "997147105514-funobti3vrgl85123iatvr7uphrhfgbd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hometutor",
+            "certificate_hash": "5622eb98cf5cd2e467347838397d4c9c4eab9bdd"
+          }
+        },
+        {
+          "client_id": "997147105514-28lo8848cfp1bj7pj4nov5fe1gbptera.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9D0h4IwuWcp1Ostw1TTNTnRAvCaIET00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "997147105514-28lo8848cfp1bj7pj4nov5fe1gbptera.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

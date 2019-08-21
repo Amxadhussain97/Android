@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".post_view"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="196dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/text_shape_stroke">
+
+            <LinearLayout
+                android:layout_width="370dp"
+                android:layout_height="42dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/oval_shape_blue"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="57dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="48dp"
+                    android:src="@drawable/icon_profile" />
+
+                <TextView
+
+                    android:layout_width="228dp"
+                    android:layout_height="39dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Abdul Goffer Maruf"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:orientation="horizontal"
+                android:paddingLeft="40dp"
+                android:paddingTop="15dp">
+
+                <ImageView
+                    android:layout_marginLeft="18dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/student_class_icon_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:paddingTop="2dp"
+                    android:text="12"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_marginLeft="160dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/dollar_sign_24dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2000 TK"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:orientation="horizontal"
+                android:paddingLeft="40dp"
+                android:paddingTop="15dp">
+
+                <ImageView
+                    android:layout_marginLeft="18dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/teacher_gender_24dp"  />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:paddingTop="2dp"
+                    android:text="Male"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_marginLeft="143dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/teacher_account_location_24dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bondor"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <Button
+                android:gravity="center"
+                android:layout_marginLeft="159dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:background="@drawable/messege_button_bg"
+                android:text="Messege"
+                android:textSize="11sp"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+
+                />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
