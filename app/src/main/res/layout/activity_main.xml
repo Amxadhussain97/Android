@@ -115,7 +115,7 @@
 
             android:textSize="15dp"
             android:text="Register"
-            android:textColor="#F4F4F8"
+            android:textColor="#C6C9DB"
 
             />
 </LinearLayout>
