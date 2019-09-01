@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bg_login"
-    tools:context=".MainActivity">
+    tools:contextxc=".MainActivity">
 
 
     <ImageView
         android:id="@+id/logo_id"
-        android:layout_width="155dp"
-        android:layout_height="133dp"
+        android:layout_width="149dp"
+        android:layout_height="175dp"
         android:layout_gravity="center"
         android:src="@drawable/logo" />
 
@@ -68,7 +68,7 @@
         android:background="@drawable/btn_bg"
         android:text="@string/login_now"
         android:textAllCaps="false"
-        android:textColor="@color/login_form_details_medium"
+        android:textColor="#FFFFFF"
         />
 
     <TextView
