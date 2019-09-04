@@ -21,13 +21,17 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegistrationForm extends AppCompatActivity implements View.OnClickListener {
     private EditText registerInstitutionEditText,registerFullNameEditText,registerEmailEditText,registerPasswordEditText,registerConfirmPasswordEditText;
     private Button registerButton;
     private RadioButton registerMale,registerFemale,registerTeacher,registerStudent;
     private RadioGroup genderType,userType;
-    private int gid,tid;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +40,7 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         genderType = (RadioGroup) findViewById(R.id.gender_radiogroup_id);
-        userType = findViewById(R.id.usetype_radiogroup_id);
-        registerFemale = findViewById(R.id.register_female_id);
-        registerTeacher = findViewById(R.id.register_teacher_id);
-        registerStudent = findViewById(R.id.register_student_id);
+        userType =  (RadioGroup) findViewById(R.id.usetype_radiogroup_id);
         registerInstitutionEditText = findViewById(R.id.register_institution_id);
         registerFullNameEditText = findViewById(R.id.register_fullname_id);
         registerEmailEditText = findViewById(R.id.register_email_id);
@@ -64,10 +65,14 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
     }
 
     private void userregister() {
-        gid = genderType.getCheckedRadioButtonId();
-        tid = userType.getCheckedRadioButtonId();
-        String email = registerEmailEditText.getText().toString().trim();
-        String password = registerPasswordEditText.getText().toString().trim();
+        int gid = genderType.getCheckedRadioButtonId();
+        int tid = userType.getCheckedRadioButtonId();
+        registerFemale = (RadioButton) findViewById(gid);
+        registerTeacher =(RadioButton)  findViewById(tid);
+        final String name = registerFullNameEditText.getText().toString().trim();
+        final String institution= registerInstitutionEditText.getText().toString().trim();
+        final String email = registerEmailEditText.getText().toString().trim();
+        final String password = registerPasswordEditText.getText().toString().trim();
         String confirmpassword = registerConfirmPasswordEditText.getText().toString().trim();
         if(email.isEmpty())
         {
@@ -121,6 +126,41 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+
+                    String user_id = mAuth.getCurrentUser().getUid();
+                    Map newRoot = new HashMap();
+                    newRoot.put("Name",name);
+                    newRoot.put("EmailAddress",email);
+                    newRoot.put("Password",password);
+                    newRoot.put("Institution",institution);
+
+
+                    if(registerFemale.isChecked())
+                    {
+                        newRoot.put("Gender","Female");
+                    }
+                    else
+                    {
+                        newRoot.put("Gender","male");
+                    }
+                    if(registerTeacher.isChecked())
+                    {
+                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Teacher").child(user_id);
+                        current_user_db.setValue(newRoot);
+                        Intent intent = new Intent(getApplicationContext(),teacher_dashboard.class);
+                        startActivity(intent);
+
+                    }
+                    else
+                    {
+                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Student").child(user_id);
+                        current_user_db.setValue(newRoot);
+                        Intent intent = new Intent(getApplicationContext(),Student_Dashboard.class);
+                        startActivity(intent);
+                    }
+
+
+
                     Toast.makeText(getApplicationContext(),"Register is successful",Toast.LENGTH_SHORT).show();
                 } else {
                     if(task.getException() instanceof FirebaseAuthUserCollisionException)
