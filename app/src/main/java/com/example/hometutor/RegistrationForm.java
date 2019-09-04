@@ -137,7 +137,7 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
 
                     if(registerFemale.isChecked())
                     {
-                        newRoot.put("Gender","Female");
+                        newRoot.put("Gender","Femalee");
                     }
                     else
                     {
