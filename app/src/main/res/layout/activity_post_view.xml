@@ -3,38 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".post_view"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
-
     <androidx.cardview.widget.CardView
+        app:cardUseCompatPadding="true"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
-        android:layout_height="196dp">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/text_shape_stroke">
-
             <LinearLayout
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="42dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/oval_shape_blue"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="57dp"
-                    android:layout_height="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="48dp"
                     android:src="@drawable/icon_profile" />
 
                 <TextView
-
+                    android:id="@+id/card_name"
                     android:layout_width="228dp"
                     android:layout_height="39dp"
                     android:layout_marginTop="8dp"
@@ -59,6 +58,7 @@
                     android:src="@drawable/student_class_icon_24dp" />
 
                 <TextView
+                    android:id="@+id/card_class"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -72,15 +72,16 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/dollar_sign_24dp" />
                 <TextView
+                    android:id="@+id/card_salary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2000 TK"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:textStyle="bold"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="54dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="40dp"
                 android:paddingTop="15dp">
@@ -92,6 +93,7 @@
                     android:src="@drawable/teacher_gender_24dp"  />
 
                 <TextView
+                    android:id="@+id/card_gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -100,24 +102,30 @@
                     android:textStyle="bold" />
 
                 <ImageView
+
                     android:layout_marginLeft="143dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/teacher_account_location_24dp" />
                 <TextView
+                    android:id="@+id/card_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bondor"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:textStyle="bold"/>
             </LinearLayout>
 
             <Button
+                android:id="@+id/msgbtn"
                 android:gravity="center"
-                android:layout_marginLeft="159dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="10dp"
                 android:layout_width="wrap_content"
-                android:layout_height="27dp"
+                android:layout_height="wrap_content"
+                android:minHeight="0dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:background="@drawable/messege_button_bg"
                 android:text="Messege"
                 android:textSize="11sp"

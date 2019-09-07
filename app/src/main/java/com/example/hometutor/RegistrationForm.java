@@ -48,8 +48,6 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
         registerConfirmPasswordEditText = findViewById(R.id.register_confirm_password_id);
         registerButton = findViewById(R.id.register_button_idd);
         registerButton.setOnClickListener(this);
-
-
     }
 
     @Override
@@ -121,7 +119,6 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
             registerTeacher.setError("Select a type");
             return;
         }
-
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -133,8 +130,6 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
                     newRoot.put("EmailAddress",email);
                     newRoot.put("Password",password);
                     newRoot.put("Institution",institution);
-
-
                     if(registerFemale.isChecked())
                     {
                         newRoot.put("Gender","Femalee");
@@ -145,10 +140,21 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
                     }
                     if(registerTeacher.isChecked())
                     {
-                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Teacher").child(user_id);
-                        current_user_db.setValue(newRoot);
-                        Intent intent = new Intent(getApplicationContext(),teacher_dashboard.class);
-                        startActivity(intent);
+                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference()
+                                .child("Users").child("Teacher").child(user_id);
+                        current_user_db.setValue(newRoot).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                               if(task.isSuccessful()){
+                                   Intent intent = new Intent(getApplicationContext(),teacher_dashboard.class);
+                                   startActivity(intent);
+                               }else
+                               {
+                                   Toast.makeText(RegistrationForm.this,"Signup failed",Toast.LENGTH_SHORT).show();
+                               }
+                            }
+                        });
+
 
                     }
                     else

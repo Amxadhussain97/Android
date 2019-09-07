@@ -15,12 +15,11 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class Login extends AppCompatActivity implements View.OnClickListener {
     private EditText logInEmailEditText,logInPasswordEditText;
     private TextView registerTextView;
     private Button logInButton;
@@ -29,6 +28,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FirebaseApp.initializeApp(this);
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null){
+            startActivity(new Intent(this,teacher_dashboard.class));
+            finish();
+        }
         mAuth = FirebaseAuth.getInstance();
         logInEmailEditText = findViewById(R.id.u_email_id);
         logInPasswordEditText = findViewById(R.id.password_id);

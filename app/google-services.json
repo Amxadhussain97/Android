@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "997147105514-kcnvea55purl5kpol8pvoon4e6ubdv23.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hometutor",
+            "certificate_hash": "1fc72f0eac924c7d5802140191d804e57f73b845"
+          }
+        },
+        {
           "client_id": "997147105514-funobti3vrgl85123iatvr7uphrhfgbd.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
