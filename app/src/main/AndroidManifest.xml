@@ -13,15 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".PostActivity">
+        <activity android:name=".PostActivity"/>
+
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Login">
-
         </activity>
         <activity android:name=".student_profile_teacher_view" />
         <activity android:name=".student_profile" />
@@ -31,7 +30,8 @@
         <activity android:name=".teacher_profile_student_view" />
         <activity android:name=".Teacherprofile" />
         <activity android:name=".Student_Dashboard" />
-        <activity android:name=".RegistrationForm" />
+        <activity android:name=".RegistrationForm">
+        </activity>
     </application>
 
 </manifest>

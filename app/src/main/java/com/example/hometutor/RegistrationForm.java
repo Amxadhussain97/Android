@@ -65,8 +65,8 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
     private void userregister() {
         int gid = genderType.getCheckedRadioButtonId();
         int tid = userType.getCheckedRadioButtonId();
-        registerFemale = (RadioButton) findViewById(gid);
-        registerTeacher =(RadioButton)  findViewById(tid);
+        registerFemale = (RadioButton) findViewById(R.id.register_female_id);
+        registerTeacher =(RadioButton)  findViewById(R.id.register_teacher_id);
         final String name = registerFullNameEditText.getText().toString().trim();
         final String institution= registerInstitutionEditText.getText().toString().trim();
         final String email = registerEmailEditText.getText().toString().trim();
@@ -130,7 +130,32 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
                     newRoot.put("EmailAddress",email);
                     newRoot.put("Password",password);
                     newRoot.put("Institution",institution);
-                    if(registerFemale.isChecked())
+                    //System.out.println(usertext);
+                   // System.out.println(gendertext);
+                    if(registerFemale.isChecked()){
+                            newRoot.put("Gender","Female");
+                        }
+                    else
+                        {
+                            newRoot.put("Gender","Male");
+                        }
+
+                    if(registerTeacher.isChecked()){
+                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference()
+                                    .child("Users").child("Teacher").child(user_id);
+                            current_user_db.setValue(newRoot);
+                            Intent intent = new Intent(getApplicationContext(),teacher_dashboard.class);
+                            startActivity(intent);
+                        }
+                    else
+                        {
+                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Student").child(user_id);
+                            current_user_db.setValue(newRoot);
+                            Intent intent = new Intent(getApplicationContext(),Student_Dashboard.class);
+                            startActivity(intent);
+                        }
+
+                   /* if(registerFemale.isChecked())
                     {
                         newRoot.put("Gender","Femalee");
                     }
@@ -163,7 +188,7 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
                         current_user_db.setValue(newRoot);
                         Intent intent = new Intent(getApplicationContext(),Student_Dashboard.class);
                         startActivity(intent);
-                    }
+                    }*/
 
 
 

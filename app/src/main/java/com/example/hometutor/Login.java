@@ -18,6 +18,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
     private EditText logInEmailEditText,logInPasswordEditText;
@@ -29,10 +34,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FirebaseApp.initializeApp(this);
-        if(FirebaseAuth.getInstance().getCurrentUser()!=null){
+       /* if(FirebaseAuth.getInstance().getCurrentUser()!=null){
             startActivity(new Intent(this,teacher_dashboard.class));
             finish();
-        }
+        }*/
         mAuth = FirebaseAuth.getInstance();
         logInEmailEditText = findViewById(R.id.u_email_id);
         logInPasswordEditText = findViewById(R.id.password_id);
@@ -90,7 +95,28 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
+                    final String  current_u_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Student");
+                    rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.hasChild(current_u_id)) {
+                                Intent intent = new Intent(getApplicationContext(),Student_Dashboard.class);
+                                startActivity(intent);
+                            }
+                            else
+                            {
+                                Intent intent = new Intent(getApplicationContext(),teacher_dashboard.class);
+                                startActivity(intent);
+                            }
+                        }
 
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+
+                    });
                 }
                 else
                 {
