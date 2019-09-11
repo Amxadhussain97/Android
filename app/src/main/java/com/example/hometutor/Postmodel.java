@@ -4,6 +4,7 @@ public class Postmodel {
     String poster;
     String location;
     String gender;
+    String clas;
     String owner;
 
     public String getPostid() {
@@ -14,13 +15,14 @@ public class Postmodel {
         this.postid = postid;
     }
 
-    String postid;
-    Long salry,posttime;
+    String postid,salry;
+    Long posttime;
 
-    public Postmodel(String poster, String location, String gender, String owner, Long salry, Long posttime) {
+    public Postmodel(String poster, String location, String gender, String clas,String owner, String salry, Long posttime) {
         this.poster = poster;
         this.location = location;
         this.gender = gender;
+        this.clas = clas;
         this.owner = owner;
         this.salry = salry;
         this.posttime = posttime;
@@ -58,16 +60,19 @@ public class Postmodel {
         this.owner = owner;
     }
 
-    public Long getSalry() {
+    public String getSalry() {
         return salry;
     }
 
-    public void setSalry(Long salry) {
+    public void setSalry(String salry) {
         this.salry = salry;
     }
 
     public Long getPosttime() {
         return posttime;
+    }
+    public String getClas() {
+        return clas;
     }
 
     public void setPosttime(Long posttime) {

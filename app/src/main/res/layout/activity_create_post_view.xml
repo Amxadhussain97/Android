@@ -29,6 +29,7 @@
                     android:src="@drawable/student_class_icon_24dp" />
 
                 <EditText
+                    android:id="@+id/p_class"
                     android:layout_width="133dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -47,6 +48,7 @@
                     android:src="@drawable/dollar_sign_24dp" />
 
                 <EditText
+                    android:id="@+id/p_salary"
                     android:layout_width="133dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -65,6 +67,7 @@
                     android:src="@drawable/teacher_gender_24dp" />
 
                 <EditText
+                    android:id="@+id/p_gender"
                     android:layout_width="133dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -83,6 +86,7 @@
                     android:src="@drawable/teacher_account_location_24dp" />
 
                 <EditText
+                    android:id="@+id/p_place"
                     android:layout_width="133dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"

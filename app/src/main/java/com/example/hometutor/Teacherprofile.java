@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,15 +19,16 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Teacherprofile extends AppCompatActivity implements View.OnClickListener
 {
-    TextView unname,mobile,address,gender;
+    TextView t_name,t_phone,t_gender,t_address;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacherprofile);
-        unname=findViewById(R.id.p_uniname);
-        mobile=findViewById(R.id.p_mobile);
-        address=findViewById(R.id.p_address);
-        gender=findViewById(R.id.p_gender);
+        FirebaseApp.initializeApp(this);
+        t_name=findViewById(R.id.p_name);
+        t_phone=findViewById(R.id.p_mobile);
+        t_address=findViewById(R.id.p_address);
+        t_gender=findViewById(R.id.p_gender);
         loadprofileinfo();
     }
     private void loadprofileinfo() {
@@ -35,9 +37,10 @@ public class Teacherprofile extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                       if(dataSnapshot!=null){
-                          unname.setText(dataSnapshot.child("Institution").getValue(String.class));
-                          mobile.setText(dataSnapshot.child("Email").getValue(String.class));
-                          gender.setText(dataSnapshot.child("Gender").getValue(String.class));
+                          t_name.setText(dataSnapshot.child("Name").getValue(String.class));
+                          t_phone.setText(dataSnapshot.child("Phone").getValue(String.class));
+                          t_gender.setText(dataSnapshot.child("Gender").getValue(String.class));
+                          t_address.setText(dataSnapshot.child("Address").getValue(String.class));
                       }
                       else{
                           //user not exist

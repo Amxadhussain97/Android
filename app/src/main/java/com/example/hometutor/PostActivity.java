@@ -38,7 +38,7 @@ public class PostActivity extends AppCompatActivity {
 
     private void loaddata() {
         progressBar.setVisibility(View.VISIBLE);
-        DatabaseReference ref= FirebaseDatabase.getInstance().getReference("Users/posts/");
+        DatabaseReference ref= FirebaseDatabase.getInstance().getReference("posts/");
 
         ref.orderByChild("owner").equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override

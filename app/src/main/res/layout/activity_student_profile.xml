@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,6 +9,11 @@
     android:background="#FCFBFB"
     tools:context=".Teacherprofile"
     >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="374dp">
@@ -29,6 +35,7 @@
                 android:src="@drawable/icon_profile" />
 
             <TextView
+                android:id="@+id/sp_name"
                 android:gravity="center"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
@@ -101,7 +108,8 @@
 
     <LinearLayout
         android:layout_marginTop="10dp"
-        android:layout_width="363dp"
+        android:layout_marginLeft="19dp"
+        android:layout_width="match_parent"
         android:layout_height="39dp"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
@@ -112,6 +120,7 @@
             android:layout_height="match_parent"
             android:src="@drawable/teacher_account_institution_24dp"/>
         <TextView
+            android:id="@+id/sp_institution"
             android:paddingLeft="20dp"
             android:paddingTop="9dp"
             android:layout_width="match_parent"
@@ -125,7 +134,8 @@
 
     <LinearLayout
         android:layout_marginTop="10dp"
-        android:layout_width="363dp"
+        android:layout_marginLeft="19dp"
+        android:layout_width="match_parent"
         android:layout_height="39dp"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
@@ -136,6 +146,7 @@
             android:layout_height="match_parent"
             android:src="@drawable/teacher_account_phone_black_24dp"/>
         <TextView
+            android:id="@+id/sp_phone"
             android:paddingLeft="20dp"
             android:paddingTop="9dp"
             android:layout_width="match_parent"
@@ -149,7 +160,8 @@
 
     <LinearLayout
         android:layout_marginTop="10dp"
-        android:layout_width="363dp"
+        android:layout_marginLeft="19dp"
+        android:layout_width="match_parent"
         android:layout_height="39dp"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
@@ -160,6 +172,7 @@
             android:layout_height="match_parent"
             android:src="@drawable/teacher_account_location_24dp"/>
         <TextView
+            android:id="@+id/sp_address"
             android:paddingLeft="20dp"
             android:paddingTop="9dp"
             android:layout_width="match_parent"
@@ -173,7 +186,8 @@
 
     <LinearLayout
         android:layout_marginTop="10dp"
-        android:layout_width="363dp"
+        android:layout_marginLeft="19dp"
+        android:layout_width="match_parent"
         android:layout_height="39dp"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
@@ -184,6 +198,7 @@
             android:layout_height="match_parent"
             android:src="@drawable/teacher_gender_24dp"/>
         <TextView
+            android:id="@+id/sp_gender"
             android:paddingLeft="20dp"
             android:paddingTop="9dp"
             android:layout_width="match_parent"
@@ -204,5 +219,5 @@
         android:text="Edit Info"
         android:textColor="#FFFFFF"
         />
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

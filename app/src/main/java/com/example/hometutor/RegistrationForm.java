@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
@@ -30,6 +31,8 @@ import java.util.Map;
 public class RegistrationForm extends AppCompatActivity implements View.OnClickListener {
     private EditText registerInstitutionEditText,registerFullNameEditText,registerEmailEditText,registerPasswordEditText,registerConfirmPasswordEditText;
     private Button registerButton;
+    private EditText registerPhoneEditText;
+    private EditText registerAddressEditText;
     private RadioButton registerMale,registerFemale,registerTeacher,registerStudent;
     private RadioGroup genderType,userType;
     private FirebaseAuth mAuth;
@@ -37,13 +40,16 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_form);
+        FirebaseApp.initializeApp(this);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         genderType = (RadioGroup) findViewById(R.id.gender_radiogroup_id);
         userType =  (RadioGroup) findViewById(R.id.usetype_radiogroup_id);
         registerInstitutionEditText = findViewById(R.id.register_institution_id);
+        registerAddressEditText = findViewById(R.id.register_address_id);
         registerFullNameEditText = findViewById(R.id.register_fullname_id);
         registerEmailEditText = findViewById(R.id.register_email_id);
+        registerPhoneEditText = findViewById(R.id.register_phone_id);
         registerPasswordEditText = findViewById(R.id.register_password_id);
         registerConfirmPasswordEditText = findViewById(R.id.register_confirm_password_id);
         registerButton = findViewById(R.id.register_button_idd);
@@ -69,8 +75,10 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
         registerTeacher =(RadioButton)  findViewById(R.id.register_teacher_id);
         final String name = registerFullNameEditText.getText().toString().trim();
         final String institution= registerInstitutionEditText.getText().toString().trim();
+        final String address= registerAddressEditText.getText().toString().trim();
         final String email = registerEmailEditText.getText().toString().trim();
         final String password = registerPasswordEditText.getText().toString().trim();
+        final String phone = registerPhoneEditText.getText().toString().trim();
         String confirmpassword = registerConfirmPasswordEditText.getText().toString().trim();
         if(email.isEmpty())
         {
@@ -89,6 +97,18 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
         {
             registerPasswordEditText.setError("Enter a password");
             registerPasswordEditText.requestFocus();
+            return;
+        }
+        if(address.isEmpty())
+        {
+            registerAddressEditText.setError("Enter an Address");
+            registerAddressEditText.requestFocus();
+            return;
+        }
+        if(phone.isEmpty())
+        {
+            registerPhoneEditText.setError("Enter Your Phone Number");
+            registerPhoneEditText.requestFocus();
             return;
         }
         if(confirmpassword.isEmpty())
@@ -130,8 +150,11 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
                     newRoot.put("EmailAddress",email);
                     newRoot.put("Password",password);
                     newRoot.put("Institution",institution);
-                    //System.out.println(usertext);
-                   // System.out.println(gendertext);
+                    newRoot.put("Address",institution);
+                    newRoot.put("Phone",phone);
+                    DatabaseReference current_user_db1 = FirebaseDatabase.getInstance().getReference()
+                            .child("Users").child("Names").child(user_id);
+                    current_user_db1.setValue(name);
                     if(registerFemale.isChecked()){
                             newRoot.put("Gender","Female");
                         }

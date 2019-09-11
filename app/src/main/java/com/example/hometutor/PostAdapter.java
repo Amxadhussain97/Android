@@ -40,6 +40,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myviewholder> 
         holder.gender.setText(postmodel.getGender());
         holder.name.setText(postmodel.getPoster());
         holder.location.setText(postmodel.getLocation());
+        holder.cllas.setText(postmodel.getClas());
+        holder.salary.setText(postmodel.getSalry());
     }
 
     @Override
@@ -51,12 +53,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myviewholder> 
     }
 
     public class Myviewholder extends RecyclerView.ViewHolder{
-        TextView name,salary,clas,location,gender;
+        TextView name,salary,cllas,location,gender;
         public Myviewholder(@NonNull View itemView) {
             super(itemView);
             name=itemView.findViewById(R.id.card_name);
             salary=itemView.findViewById(R.id.card_salary);
-            clas=itemView.findViewById(R.id.card_class);
+            cllas=itemView.findViewById(R.id.card_class);
             location=itemView.findViewById(R.id.card_location);
             gender=itemView.findViewById(R.id.card_gender);
             itemView.findViewById(R.id.msgbtn).setOnClickListener(new View.OnClickListener() {

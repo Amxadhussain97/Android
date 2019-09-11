@@ -10,7 +10,8 @@
     <string name="register">Register</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
-    <string name="institution">institution</string>
+    <string name="institution">Institution</string>
+    <string name="phone">Phone</string>
     <string name="confirmpassword">Confirm Password</string>
     <string name="login_now">Login Now</string>
     <string name="don_t_remember_password">Don\'t Remember password?</string>
