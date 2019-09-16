@@ -1,10 +1,13 @@
 package com.example.hometutor;
 
+import android.widget.EditText;
+
 public class Postmodel {
     String poster;
-    String location;
-    String gender;
-    String clas;
+   // String location;
+    String post;
+   /* String gender;
+    String clas;*/
     String owner;
 
     public String getPostid() {
@@ -15,16 +18,18 @@ public class Postmodel {
         this.postid = postid;
     }
 
-    String postid,salry;
+    String postid;
+    //salry;
     Long posttime;
 
-    public Postmodel(String poster, String location, String gender, String clas,String owner, String salry, Long posttime) {
+    public Postmodel(String post,String poster, String owner,Long posttime) {
+        this.post =post;
         this.poster = poster;
-        this.location = location;
-        this.gender = gender;
-        this.clas = clas;
+       // this.location = location;
+      /*  this.gender = gender;
+        this.clas = clas;*/
         this.owner = owner;
-        this.salry = salry;
+       // this.salry = salry;
         this.posttime = posttime;
     }
 
@@ -36,21 +41,28 @@ public class Postmodel {
         this.poster = poster;
     }
 
-    public String getLocation() {
+   /* public String getLocation() {
         return location;
+    }*/
+
+    public void setPost(String post) {
+        this.post = post;
+    }
+    public String getPost() {
+        return post;
     }
 
-    public void setLocation(String location) {
+   /* public void setLocation(String location) {
         this.location = location;
-    }
+    }*/
 
-    public String getGender() {
+   /* public String getGender() {
         return gender;
     }
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
+    }*/
 
     public String getOwner() {
         return owner;
@@ -60,20 +72,20 @@ public class Postmodel {
         this.owner = owner;
     }
 
-    public String getSalry() {
+  /*  public String getSalry() {
         return salry;
     }
 
     public void setSalry(String salry) {
         this.salry = salry;
-    }
+    }*/
 
     public Long getPosttime() {
         return posttime;
     }
-    public String getClas() {
+  /*  public String getClas() {
         return clas;
-    }
+    }*/
 
     public void setPosttime(Long posttime) {
         this.posttime = posttime;

@@ -18,82 +18,18 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
-            <LinearLayout
+
+            <EditText
+                android:id="@+id/typepostid"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:gravity="center">
+                android:layout_height="182dp"
+                android:hint="Type Your Post here"
+                android:textColor="#3F51B5"
+                >
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/student_class_icon_24dp" />
 
-                <EditText
-                    android:id="@+id/p_class"
-                    android:layout_width="133dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:hint="Class"
-                    android:textSize="13dp" />
+            </EditText>
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/dollar_sign_24dp" />
-
-                <EditText
-                    android:id="@+id/p_salary"
-                    android:layout_width="133dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:hint="Salary"
-                    android:textSize="13dp" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/teacher_gender_24dp" />
-
-                <EditText
-                    android:id="@+id/p_gender"
-                    android:layout_width="133dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:hint="Teacher Gender"
-                    android:textSize="13dp" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/teacher_account_location_24dp" />
-
-                <EditText
-                    android:id="@+id/p_place"
-                    android:layout_width="133dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:hint="Place"
-                    android:textSize="10dp" />
-
-            </LinearLayout>
 
             <ImageView
                 android:id="@+id/postbtn"

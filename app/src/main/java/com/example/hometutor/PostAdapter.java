@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,11 +38,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myviewholder> 
     @Override
     public void onBindViewHolder(@NonNull Myviewholder holder, int position) {
         Postmodel postmodel=getitem(position);
-        holder.gender.setText(postmodel.getGender());
+       // holder.gender.setText(postmodel.getGender());
         holder.name.setText(postmodel.getPoster());
-        holder.location.setText(postmodel.getLocation());
-        holder.cllas.setText(postmodel.getClas());
-        holder.salary.setText(postmodel.getSalry());
+        holder.upost.setText(postmodel.getPost());
+      //  holder.cllas.setText(postmodel.getClas());
+       // holder.salary.setText(postmodel.getSalry());
     }
 
     @Override
@@ -54,13 +55,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myviewholder> 
 
     public class Myviewholder extends RecyclerView.ViewHolder{
         TextView name,salary,cllas,location,gender;
+        TextView upost;
         public Myviewholder(@NonNull View itemView) {
             super(itemView);
+            upost = itemView.findViewById(R.id.postid);
             name=itemView.findViewById(R.id.card_name);
-            salary=itemView.findViewById(R.id.card_salary);
-            cllas=itemView.findViewById(R.id.card_class);
-            location=itemView.findViewById(R.id.card_location);
-            gender=itemView.findViewById(R.id.card_gender);
             itemView.findViewById(R.id.msgbtn).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

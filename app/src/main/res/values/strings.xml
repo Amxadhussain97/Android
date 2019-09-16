@@ -10,6 +10,7 @@
     <string name="register">Register</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="samplepost">Female</string>
     <string name="institution">Institution</string>
     <string name="phone">Phone</string>
     <string name="confirmpassword">Confirm Password</string>
