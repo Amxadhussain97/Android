@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FCFBFB"
     tools:context=".RegistrationForm">
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,217 +13,282 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".RegistrationForm"
-        android:background="@drawable/bg_login">
+        android:background="@drawable/regibacklogo">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#1330C0"
+            android:textSize="27dp"
+           android:layout_marginTop="30dp"
+            android:layout_marginLeft="130dp"
+            android:text="Register">
 
+        </TextView>
 
-        <EditText
-            android:id="@+id/register_fullname_id"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="42dp"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/et_bg"
-            android:hint="@string/full_name_hint"
-            android:textSize="16dp"
-            android:inputType="textEmailAddress"
-            android:padding="16dp"
-            android:textColorHint="@color/login_form_details"
-            />
+        <androidx.cardview.widget.CardView
+            android:layout_width="230dp"
+            android:layout_height="350dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="50dp">
 
-        <EditText
-            android:id="@+id/register_email_id"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/et_bg"
-            android:hint="@string/email_address"
-            android:textSize="16dp"
-            android:inputType="textEmailAddress"
-            android:padding="16dp"
-            android:textColorHint="@color/login_form_details"
-            />
-
-        <EditText
-            android:id="@+id/register_password_id"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/et_bg"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:textSize="16dp"
-            android:padding="16dp"
-            android:textColorHint="@color/login_form_details"
-            />
-
-        <EditText
-            android:id="@+id/register_confirm_password_id"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/et_bg"
-            android:textColor="#FFFFFF"
-            android:hint="@string/confirmpassword"
-            android:inputType="textPassword"
-            android:textSize="16dp"
-            android:padding="16dp"
-            android:textColorHint="@color/login_form_details"
-            />
-
-        <EditText
-            android:id="@+id/register_institution_id"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/et_bg"
-            android:hint="@string/institution"
-            android:textColor="#FFFFFF"
-            android:textSize="16dp"
-            android:padding="16dp"
-            android:textColorHint="@color/login_form_details"
-            />
-        <EditText
-            android:id="@+id/register_phone_id"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/et_bg"
-            android:hint="@string/phone"
-            android:textColor="#FFFFFF"
-            android:textSize="16dp"
-            android:padding="16dp"
-            android:textColorHint="@color/login_form_details"
-            />
-        <EditText
-            android:id="@+id/register_address_id"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/et_bg"
-            android:hint="Address"
-            android:textColor="#FFFFFF"
-            android:textSize="16dp"
-            android:padding="16dp"
-            android:textColorHint="@color/login_form_details"
-            />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            >
-            <LinearLayout
-                android:layout_marginLeft="55dp"
-                android:layout_width="144dp"
-                android:layout_height="73dp"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="56dp"
-                    android:layout_height="40dp"
-                    android:text="@string/gender"
-                    android:paddingTop="2dp"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16dp" />
-                <RadioGroup
-                    android:id="@+id/gender_radiogroup_id"
-                    android:layout_width="wrap_content"
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    >
-                    <RadioButton
-                        android:id="@+id/register_male_id"
+                    android:orientation="vertical">
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/male"
-                        android:textSize="15dp"
-                        android:textColor="#F5F4F4"
-                        android:outlineSpotShadowColor="#FFFFFF"
-                        android:shadowColor="#FFFFFF"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="horizontal">
 
-                        />
-                    <RadioButton
-                        android:id="@+id/register_female_id"
+                       <ImageView
+                        android:layout_width="41dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/nameicon">
+
+                       </ImageView>
+                       <EditText
+                        android:id="@+id/register_fullname_id"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="6dp"
+                        android:textColor="#1B33BB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Full name"
+                        ></EditText>
+
+                     </LinearLayout>
+
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/female"
-                        android:textSize="15dp"
-                        android:outlineSpotShadowColor="#FFFFFF"
-                        android:shadowColor="#FFFFFF"
-                        android:textColor="#F5F4F4"
-                        />
-                </RadioGroup>
-            </LinearLayout>
+                        android:layout_height="60dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_marginLeft="2dp"
-                android:layout_width="179dp"
-                android:layout_height="73dp"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="41dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/emailicon">
 
-                <TextView
-                    android:id="@+id/usertypeid"
-                    android:layout_width="80dp"
-                    android:layout_height="38dp"
-                    android:paddingTop="2dp"
-                    android:text="@string/usertype"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16dp"/>
-                <RadioGroup
-                    android:id="@+id/usetype_radiogroup_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                        </ImageView>
+                        <EditText
+                            android:id="@+id/register_email_id"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:textColor="#1B33BB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Email id"
+                            ></EditText>
 
-                    >
-                    <RadioButton
-                        android:id="@+id/register_student_id"
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/student"
-                        android:outlineSpotShadowColor="#FFFFFF"
-                        android:shadowColor="#FFFFFF"
-                        android:textSize="15dp"
-                        android:textColor="#F5F4F4"
-                        />
-                    <RadioButton
-                        android:id="@+id/register_teacher_id"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="41dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/passwordicon">
+
+                        </ImageView>
+                        <EditText
+                            android:id="@+id/register_password_id"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:textColor="#1B33BB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:hint="Password"
+                            ></EditText>
+
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:outlineSpotShadowColor="#FFFFFF"
-                        android:shadowColor="#FFFFFF"
-                        android:text="@string/teacher"
-                        android:textSize="15dp"
-                        android:textColor="#F5F4F4"
-                        />
-                </RadioGroup>
-            </LinearLayout>
-        </LinearLayout>
+                        android:layout_height="60dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="horizontal">
 
+                        <ImageView
+                            android:layout_width="41dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/passwordicon">
 
+                        </ImageView>
+                        <EditText
+                            android:id="@+id/register_confirm_password_id"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:textColor="#1B33BB"
+                            android:layout_width="wrap_content"
+                            android:inputType="textPassword"
+                            android:layout_height="wrap_content"
+                            android:hint="Confirm Password"
+                            ></EditText>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="41dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/instituteicon">
+
+                        </ImageView>
+                        <EditText
+                            android:id="@+id/register_institution_id"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:textColor="#1B33BB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Institution"
+                            ></EditText>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="41dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/phoneicon">
+
+                        </ImageView>
+                        <EditText
+                            android:id="@+id/register_phone_id"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:textColor="#1B33BB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Phone"
+                            ></EditText>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="41dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/addressicon">
+
+                        </ImageView>
+                        <EditText
+                            android:id="@+id/register_address_id"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="6dp"
+                            android:textColor="#1B33BB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Address"
+                            ></EditText>
+
+                    </LinearLayout>
+                    <RadioGroup
+                        android:id="@+id/usetype_radiogroup_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        >
+                        <RadioButton
+                            android:id="@+id/register_student_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/student"
+                            android:outlineSpotShadowColor="#FFFFFF"
+                            android:shadowColor="#FFFFFF"
+                            android:textSize="15dp"
+                            android:textColor="#F5F4F4"
+                            />
+                        <RadioButton
+                            android:id="@+id/register_teacher_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:outlineSpotShadowColor="#FFFFFF"
+                            android:shadowColor="#FFFFFF"
+                            android:text="@string/teacher"
+                            android:textSize="15dp"
+                            android:textColor="#F5F4F4"
+                            />
+                    </RadioGroup>
+                    <RadioGroup
+                        android:id="@+id/gender_radiogroup_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+                        <RadioButton
+                            android:id="@+id/register_male_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/male"
+                            android:textSize="15dp"
+                            android:textColor="#F5F4F4"
+                            android:outlineSpotShadowColor="#FFFFFF"
+                            android:shadowColor="#FFFFFF"
+
+                            />
+                        <RadioButton
+                            android:id="@+id/register_female_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/female"
+                            android:textSize="15dp"
+                            android:outlineSpotShadowColor="#FFFFFF"
+                            android:shadowColor="#FFFFFF"
+                            android:textColor="#F5F4F4"
+                            />
+                    </RadioGroup>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </androidx.cardview.widget.CardView>
         <Button
-            android:id="@+id/register_button_idd"
-            android:layout_width="120dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:background="#CB5052CA"
-            android:text="@string/register"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF" />
 
+            android:id="@+id/register_button_idd"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="148dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:background="#1A2E94"
+            ></Button>
 
     </LinearLayout>
+
+
+
+
+
 </ScrollView>
