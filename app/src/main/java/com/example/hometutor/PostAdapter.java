@@ -56,6 +56,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myviewholder> 
     public class Myviewholder extends RecyclerView.ViewHolder{
         TextView name,salary,cllas,location,gender;
         TextView upost;
+        //go
         public Myviewholder(@NonNull View itemView) {
             super(itemView);
             upost = itemView.findViewById(R.id.postid);
