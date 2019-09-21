@@ -55,6 +55,8 @@ public class Student_Dashboard extends AppCompatActivity implements View.OnClick
             }
             case R.id.search_teacher:
             {
+                Intent intent = new Intent(getApplicationContext(),fragment_users.class);
+                startActivity(intent);
                 break;
             }
             case R.id.create_post:
@@ -65,6 +67,9 @@ public class Student_Dashboard extends AppCompatActivity implements View.OnClick
             }
             case R.id.sign_out:
             {
+                Intent intent = new Intent(getApplicationContext(),Login.class);
+                startActivity(intent);
+                finish();
                 break;
             }
         }

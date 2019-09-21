@@ -162,7 +162,9 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
                         {
                             newRoot.put("Gender","Male");
                         }
-
+                    DatabaseReference all_user_db = FirebaseDatabase.getInstance().getReference()
+                            .child("Users").child("All").child(user_id);
+                    all_user_db.setValue(newRoot);
                     if(registerTeacher.isChecked()){
                             DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference()
                                     .child("Users").child("Teacher").child(user_id);

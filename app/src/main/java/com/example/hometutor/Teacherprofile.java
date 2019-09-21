@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Teacherprofile extends AppCompatActivity implements View.OnClickListener
 {
-    TextView t_name,t_phone,t_gender,t_address;
+    TextView t_name,t_phone,t_gender,t_address,t_uni;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +29,7 @@ public class Teacherprofile extends AppCompatActivity implements View.OnClickLis
         t_phone=findViewById(R.id.p_mobile);
         t_address=findViewById(R.id.p_address);
         t_gender=findViewById(R.id.p_gender);
+        t_uni=findViewById(R.id.p_uniname);
         loadprofileinfo();
     }
     private void loadprofileinfo() {
@@ -41,6 +42,7 @@ public class Teacherprofile extends AppCompatActivity implements View.OnClickLis
                           t_phone.setText(dataSnapshot.child("Phone").getValue(String.class));
                           t_gender.setText(dataSnapshot.child("Gender").getValue(String.class));
                           t_address.setText(dataSnapshot.child("Address").getValue(String.class));
+                          t_uni.setText(dataSnapshot.child("Institution").getValue(String.class));
                       }
                       else{
                           //user not exist

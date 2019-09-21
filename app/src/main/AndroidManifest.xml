@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.hometutor">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,8 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".PostActivity"/>
-
+        <activity android:name=".message_activity"></activity>
+        <activity android:name=".fragment_users" />
+        <activity android:name=".PostActivity" />
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,8 +29,9 @@
         <activity android:name=".teacher_profile_student_view" />
         <activity android:name=".Teacherprofile" />
         <activity android:name=".Student_Dashboard" />
-        <activity android:name=".RegistrationForm">
-        </activity>
+        <activity android:name=".RegistrationForm" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

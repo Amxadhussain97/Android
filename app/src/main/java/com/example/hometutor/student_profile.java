@@ -35,6 +35,7 @@ public class student_profile extends AppCompatActivity {
                      st_phone.setText(dataSnapshot.child("Phone").getValue(String.class));
                      st_gender.setText(dataSnapshot.child("Gender").getValue(String.class));
                      st_address.setText(dataSnapshot.child("Address").getValue(String.class));
+                     st_institution.setText(dataSnapshot.child("Institution").getValue(String.class));
                  }
              }
 

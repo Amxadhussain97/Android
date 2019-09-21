@@ -34,13 +34,22 @@
 
                 <TextView
                     android:id="@+id/card_name"
-                    android:layout_width="228dp"
-                    android:layout_height="39dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Abdul Goffer Maruf"
                     android:textColor="#FFFFFF"
                     android:textSize="15sp"
                     android:textStyle="bold" />
+                 <TextView
+                     android:id="@+id/post_delete_id"
+                     android:layout_marginLeft="90dp"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Delete"
+                     android:textSize="12dp"
+                     android:textColor="#FFFFFF">
+
+                 </TextView>
 
 
             </LinearLayout>

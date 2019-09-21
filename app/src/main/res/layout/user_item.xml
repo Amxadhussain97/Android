@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:cardBackgroundColor="#08EB3BFF"
+          >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_image_id"
+
+
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:src="@drawable/user_icon"
+            />
+
+        <TextView
+            android:id="@+id/teacher_name_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Abdull Goffar Maruf"
+            android:textSize="25dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="80dp"
+            android:textColor="#F5233186">
+
+        </TextView>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
