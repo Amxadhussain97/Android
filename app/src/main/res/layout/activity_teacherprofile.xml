@@ -223,13 +223,14 @@
             />
     </LinearLayout>
     <Button
+        android:id="@+id/profile_messege_id"
         android:layout_marginTop="60dp"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:background="@drawable/messege_button_bg"
         android:layout_gravity="center_horizontal"
         android:textAllCaps="false"
-        android:text="Edit Info"
+        android:text="Messege"
         android:textColor="#FFFFFF"
         />
     </LinearLayout>

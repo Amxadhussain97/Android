@@ -1,6 +1,7 @@
 package com.example.hometutor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,8 +34,16 @@ public class SearchTeacherAdapter extends RecyclerView.Adapter<SearchTeacherAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        SearchTeacherModel user =getItem(position);
+        final SearchTeacherModel user =getItem(position);
         holder.username.setText(user.getName());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,Teacherprofile.class);
+                intent.putExtra("userid",user.getId());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -49,6 +58,7 @@ public class SearchTeacherAdapter extends RecyclerView.Adapter<SearchTeacherAdap
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             username=itemView.findViewById(R.id.teacher_name_id);
+
         }
     }
     public void additem(SearchTeacherModel model){

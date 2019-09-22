@@ -46,10 +46,10 @@ public class fragment_users extends AppCompatActivity {
                 if(dataSnapshot!=null)
                 {
                     for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                        SearchTeacherModel postmodel=snapshot.getValue( SearchTeacherModel.class);
+                        SearchTeacherModel tmodel=snapshot.getValue( SearchTeacherModel.class);
                         //System.out.println(postmodel);
-                        postmodel.setPosstid(snapshot.getKey());
-                        adapter.additem(postmodel);
+                        tmodel.setPosstid(snapshot.getKey());
+                        adapter.additem(tmodel);
                     }
                     adapter.notifyDataSetChanged();
                 }

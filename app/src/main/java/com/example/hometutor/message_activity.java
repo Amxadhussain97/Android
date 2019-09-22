@@ -36,8 +36,11 @@ public class message_activity extends AppCompatActivity {
 
         m_username = findViewById(R.id.messege_ac_username_id);
         profile_image = findViewById(R.id.message_ac_profile_imasge_id);
+
         firebaseuser = FirebaseAuth.getInstance().getCurrentUser();
         dbreference = FirebaseDatabase.getInstance().getReference("/Users/All/"+firebaseuser.getUid());
+
+
         dbreference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

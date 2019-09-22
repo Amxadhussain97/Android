@@ -20,6 +20,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:src="@drawable/face_icon_24dp"
                 android:id="@+id/message_ac_profile_imasge_id"/>
            <TextView
                android:layout_width="wrap_content"

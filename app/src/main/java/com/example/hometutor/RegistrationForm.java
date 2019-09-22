@@ -150,7 +150,7 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
                     newRoot.put("EmailAddress",email);
                     newRoot.put("Password",password);
                     newRoot.put("Institution",institution);
-                    newRoot.put("Address",institution);
+                    newRoot.put("Address",address);
                     newRoot.put("Phone",phone);
                     DatabaseReference current_user_db1 = FirebaseDatabase.getInstance().getReference()
                             .child("Users").child("Names").child(user_id);
@@ -164,6 +164,7 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
                         }
                     DatabaseReference all_user_db = FirebaseDatabase.getInstance().getReference()
                             .child("Users").child("All").child(user_id);
+                    newRoot.put("Id",user_id);
                     all_user_db.setValue(newRoot);
                     if(registerTeacher.isChecked()){
                             DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference()
