@@ -2,11 +2,11 @@ package com.example.hometutor.Mmodel;
 
 public class User {
     private  String Name;
-    private  String id;
+    private  String Id;
 
     public User(String name, String id) {
         Name = name;
-        this.id = id;
+        this.Id = id;
     }
     public User() {
 
@@ -21,10 +21,10 @@ public class User {
     }
 
     public String getId() {
-        return id;
+        return Id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.Id = id;
     }
 }

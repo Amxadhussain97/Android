@@ -74,7 +74,7 @@ public class Teacherprofile extends AppCompatActivity
                 if(v.getId()==R.id.profile_messege_id)
                 {
                     Intent intentmsg = new Intent(getApplicationContext(), message_activity.class);
-                    intent.putExtra("userid",userid);
+                    intentmsg.putExtra("userid",userid);
                     startActivity(intentmsg);
                 }
             }
