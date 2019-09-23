@@ -227,7 +227,7 @@
                             android:outlineSpotShadowColor="#FFFFFF"
                             android:shadowColor="#FFFFFF"
                             android:textSize="15dp"
-                            android:textColor="#F5F4F4"
+                            android:textColor="#312121"
                             />
                         <RadioButton
                             android:id="@+id/register_teacher_id"
@@ -237,7 +237,7 @@
                             android:shadowColor="#FFFFFF"
                             android:text="@string/teacher"
                             android:textSize="15dp"
-                            android:textColor="#F5F4F4"
+                            android:textColor="#312121"
                             />
                     </RadioGroup>
                     <RadioGroup
@@ -251,9 +251,9 @@
                             android:layout_height="match_parent"
                             android:text="@string/male"
                             android:textSize="15dp"
-                            android:textColor="#F5F4F4"
+                            android:textColor="#1B33BB"
                             android:outlineSpotShadowColor="#FFFFFF"
-                            android:shadowColor="#FFFFFF"
+                            android:shadowColor="#3F51B5"
 
                             />
                         <RadioButton
@@ -264,7 +264,7 @@
                             android:textSize="15dp"
                             android:outlineSpotShadowColor="#FFFFFF"
                             android:shadowColor="#FFFFFF"
-                            android:textColor="#F5F4F4"
+                            android:textColor="#1B33BB"
                             />
                     </RadioGroup>
 
