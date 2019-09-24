@@ -1,6 +1,7 @@
 package com.example.hometutor;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 //import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 import com.google.firebase.FirebaseApp;
 
 public class Student_Dashboard extends AppCompatActivity implements View.OnClickListener {
-    private TextView s_my_account,s_my_message,s_my_post,s_search_teacher,s_create_post,s_signout;
+    private CardView s_my_account,s_my_message,s_my_post,s_search_teacher,s_create_post,s_signout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
