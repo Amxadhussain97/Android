@@ -46,6 +46,8 @@ public class Student_Dashboard extends AppCompatActivity implements View.OnClick
             }
             case R.id.my_message:
             {
+                Intent intent = new Intent(getApplicationContext(),ChatFragment.class);
+                startActivity(intent);
                 break;
             }
             case R.id.my_post:

@@ -2,7 +2,6 @@ package com.example.hometutor;
 
 public class SearchTeacherModel {
     String Name;
-    String Email;
     String Id;
     public String getPosstid() {
         return Posstid;
@@ -31,11 +30,4 @@ public class SearchTeacherModel {
         Id = id;
     }
 
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
 }
