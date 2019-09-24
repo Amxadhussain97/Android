@@ -134,7 +134,7 @@
                             android:inputType="textPassword"
                             android:layout_height="wrap_content"
                             android:hint="Confirm Password"
-                            ></EditText>
+                            />
 
                     </LinearLayout>
 
@@ -159,7 +159,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:hint="Institution"
-                            ></EditText>
+                            />
 
                     </LinearLayout>
                     <LinearLayout
@@ -183,7 +183,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:hint="Phone"
-                            ></EditText>
+                            />
 
                     </LinearLayout>
 
@@ -208,7 +208,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:hint="Address"
-                            ></EditText>
+                            />
 
                     </LinearLayout>
                     <RadioGroup
@@ -285,7 +285,7 @@
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
 
-            ></TextView>
+            />
 
 
 

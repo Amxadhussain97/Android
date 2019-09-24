@@ -67,7 +67,6 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
 
         }
     }
-
     private void userregister() {
         int gid = genderType.getCheckedRadioButtonId();
         int tid = userType.getCheckedRadioButtonId();
