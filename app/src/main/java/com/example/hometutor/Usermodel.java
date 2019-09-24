@@ -1,14 +1,14 @@
-package com.example.hometutor.Mmodel;
+package com.example.hometutor;
 
-public class User {
+public class Usermodel {
     private  String Name;
     private  String Id;
 
-    public User(String name, String id) {
+    public Usermodel(String name, String id) {
         Name = name;
         this.Id = id;
     }
-    public User() {
+    public Usermodel() {
 
     }
 

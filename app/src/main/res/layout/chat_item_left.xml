@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/cil_profile_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/face_icon_blue_24dp"/>
+    <TextView
+        android:id="@+id/msg_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/cil_profile_image"
+        android:text="Kitare Balani.."
+        android:textSize="18sp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/background_left"
+        android:padding="9dp"
+        android:textColor="#FFFFFF"
+        />
+    </RelativeLayout>
+</RelativeLayout>

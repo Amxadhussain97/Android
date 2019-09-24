@@ -32,9 +32,15 @@ public class fragment_users extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new SearchTeacherAdapter(this);
         recyclerView.setAdapter(adapter);
-        loaddata();
+
         
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        loaddata();
     }
 
     private void loaddata() {
@@ -43,6 +49,7 @@ public class fragment_users extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+              //  System.out.println(dataSnapshot.getValue());
                 if(dataSnapshot!=null)
                 {
                     for(DataSnapshot snapshot : dataSnapshot.getChildren()){

@@ -30,7 +30,7 @@ import java.util.Map;
 
 public class RegistrationForm extends AppCompatActivity implements View.OnClickListener {
     private EditText registerInstitutionEditText,registerFullNameEditText,registerEmailEditText,registerPasswordEditText,registerConfirmPasswordEditText;
-    private Button registerButton;
+    private TextView registerButton;
     private EditText registerPhoneEditText;
     private EditText registerAddressEditText;
     private RadioButton registerMale,registerFemale,registerTeacher,registerStudent;

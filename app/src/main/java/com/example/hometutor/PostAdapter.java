@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -36,11 +37,41 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myviewholder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Myviewholder holder, int position) {
-        Postmodel postmodel=getitem(position);
+    public void onBindViewHolder(@NonNull  Myviewholder holder, int position) {
+        final Postmodel postmodel=getitem(position);
        // holder.gender.setText(postmodel.getGender());
         holder.name.setText(postmodel.getPoster());
         holder.upost.setText(postmodel.getPost());
+        String  current_u_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        if(postmodel.getOwner().equals(current_u_id))
+        {
+            holder.delete.setVisibility(View.VISIBLE);
+        }
+        else holder.delete.setVisibility(View.GONE);
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id=postmodel.getPostid();
+                DatabaseReference ref= FirebaseDatabase.getInstance().getReference("/posts/"+id);
+                ref.removeValue(new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                        if(databaseError!=null)
+                            Toast.makeText(mcContext," Error While Deleting",Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(mcContext,"Delete Succesfull",Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+        holder.message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mcContext,Teacherprofile.class);
+                intent.putExtra("userid",postmodel.getOwner());
+                mcContext.startActivity(intent);
+            }
+        });
       //  holder.cllas.setText(postmodel.getClas());
        // holder.salary.setText(postmodel.getSalry());
        /* holder.name.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +92,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myviewholder> 
     }
 
     public class Myviewholder extends RecyclerView.ViewHolder{
-        TextView name,salary,cllas,location,gender,delete;
+        TextView name,salary,cllas,location,gender,delete,message;
         TextView upost;
         //go
         public Myviewholder(@NonNull View itemView) {
@@ -69,12 +100,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myviewholder> 
             upost = itemView.findViewById(R.id.postid);
             name=itemView.findViewById(R.id.card_name);
             delete=itemView.findViewById(R.id.post_delete_id);
-            itemView.findViewById(R.id.msgbtn).setOnClickListener(new View.OnClickListener() {
+            message = itemView.findViewById(R.id.msgbtn_id);
+           // final String abc=getitem(getAdapterPosition()).getOwner();
+          /*itemView.findViewById(R.id.msgbtn_id).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-/* deleting a post
                   String id=getitem(getAdapterPosition()).getPostid();
-                    DatabaseReference ref= FirebaseDatabase.getInstance().getReference("/posts/"+id);
+                   /* DatabaseReference ref= FirebaseDatabase.getInstance().getReference("/posts/"+id);
                     ref.removeValue(new DatabaseReference.CompletionListener() {
                         @Override
                         public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
@@ -84,17 +116,17 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myviewholder> 
                             Toast.makeText(mcContext,"Erro While Deleting",Toast.LENGTH_SHORT).show();
                         }
                     });
-                    */
+
 
 
 
 
                     String abc=getitem(getAdapterPosition()).getOwner();
-                    Intent intent=new Intent(mcContext,create_post_view.class);
-                    intent.putExtra("owner",abc);
+                    Intent intent=new Intent(mcContext,Teacherprofile.class);
+                    intent.putExtra("userid",abc);
                     mcContext.startActivity(intent);
                 }
-            });
+            }); */
 
 
         }
