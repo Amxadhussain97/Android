@@ -1,4 +1,5 @@
 package com.example.hometutor;
+import android.app.ProgressDialog;
 import android.content.Intent;
 //import android.support.annotation.NonNull;
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,6 +30,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private EditText logInEmailEditText,logInPasswordEditText;
     private TextView registerTextView;
     private Button logInButton;
+    private ProgressDialog mProgress;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +48,15 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         logInButton = findViewById(R.id.login_btn_id);
         logInButton.setOnClickListener(this);
         registerTextView.setOnClickListener(this);
+
+        mProgress=new ProgressDialog(this);
+        mProgress.setTitle("Loading...");
+        mProgress.setMessage("Please Wait...");
     }
 
     @Override
     public void onClick(View v) {
+        mProgress.show();
         switch (v.getId())
         {
             case R.id.login_btn_id:
@@ -68,6 +76,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         if(email.isEmpty())
         {
+            mProgress.dismiss();
             //Log.e("Error","Is here?");
             logInEmailEditText.setError("Enter an email address");
             logInEmailEditText.requestFocus();
@@ -75,17 +84,20 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         }
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
         {
+            mProgress.dismiss();
             logInEmailEditText.setError("Enter a valid email address");
             logInEmailEditText.requestFocus();
             return;
         }
         if(password.isEmpty())
         {
+            mProgress.dismiss();
             logInPasswordEditText.setError("Enter a password");
             logInPasswordEditText.requestFocus();
         }
         if(password.length()<6)
         {
+            mProgress.dismiss();
             logInPasswordEditText.setError("Minimum length of a password should be 6");
             logInPasswordEditText.requestFocus();
         }
@@ -95,6 +107,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
+
                     final String  current_u_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Student");
                     rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -102,11 +115,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.hasChild(current_u_id)) {
                                 Intent intent = new Intent(getApplicationContext(),Student_Dashboard.class);
+                                mProgress.dismiss();
                                 startActivity(intent);
                             }
                             else
                             {
                                 Intent intent = new Intent(getApplicationContext(),teacher_dashboard.class);
+                                mProgress.dismiss();
                                 startActivity(intent);
                             }
                         }
@@ -120,7 +135,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 }
                 else
                 {
-
+                    mProgress.dismiss();
+                    Toast.makeText(getApplicationContext(), "No such user", Toast.LENGTH_LONG).show();
+                    logInPasswordEditText.setText("");
+                    logInEmailEditText.setText("");
                 }
             }
         });

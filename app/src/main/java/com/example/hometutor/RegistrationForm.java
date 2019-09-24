@@ -1,5 +1,6 @@
 package com.example.hometutor;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 //import android.support.annotation.NonNull;
 import androidx.annotation.NonNull;
@@ -36,6 +37,7 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
     private RadioButton registerMale,registerFemale,registerTeacher,registerStudent;
     private RadioGroup genderType,userType;
     private FirebaseAuth mAuth;
+    private ProgressDialog mProgress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,10 +56,15 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
         registerConfirmPasswordEditText = findViewById(R.id.register_confirm_password_id);
         registerButton = findViewById(R.id.register_button_idd);
         registerButton.setOnClickListener(this);
+
+        mProgress=new ProgressDialog(this);
+        mProgress.setTitle("Loading...");
+        mProgress.setMessage("Please Wait...");
     }
 
     @Override
     public void onClick(View v) {
+        mProgress.show();
         switch (v.getId())
         {
             case R.id.register_button_idd:
@@ -81,6 +88,7 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
         String confirmpassword = registerConfirmPasswordEditText.getText().toString().trim();
         if(email.isEmpty())
         {
+            mProgress.dismiss();
             registerEmailEditText.setError("Enter an email address");
             registerEmailEditText.requestFocus();
             return;
@@ -88,53 +96,62 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
         {
+            mProgress.dismiss();
             registerEmailEditText.setError("Enter a valid email address");
             registerEmailEditText.requestFocus();
             return;
         }
         if(password.isEmpty())
         {
+            mProgress.dismiss();
             registerPasswordEditText.setError("Enter a password");
             registerPasswordEditText.requestFocus();
             return;
         }
         if(address.isEmpty())
         {
+            mProgress.dismiss();
             registerAddressEditText.setError("Enter an Address");
             registerAddressEditText.requestFocus();
             return;
         }
         if(phone.isEmpty())
         {
+            mProgress.dismiss();
             registerPhoneEditText.setError("Enter Your Phone Number");
             registerPhoneEditText.requestFocus();
             return;
         }
         if(confirmpassword.isEmpty())
         {
+            mProgress.dismiss();
             registerConfirmPasswordEditText.setError("Enter a password");
             registerConfirmPasswordEditText.requestFocus();
             return;
         }
         if(!password.equals(confirmpassword))
         {
+            mProgress.dismiss();
             registerConfirmPasswordEditText.setError("Password not matched");
             registerConfirmPasswordEditText.requestFocus();
             return;
         }
         if(password.length()<6)
         {
+            mProgress.dismiss();
             registerPasswordEditText.setError("Minimum length of a password should be 6");
             registerPasswordEditText.requestFocus();
             return;
         }
         if(gid==-1)
         {
+            mProgress.dismiss();
             registerFemale.setError("Select a gender");
             return;
         }
         if(tid==-1)
         {
+            mProgress.dismiss();
             registerTeacher.setError("Select a type");
             return;
         }
@@ -142,7 +159,7 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-
+                    mProgress.dismiss();
                     String user_id = mAuth.getCurrentUser().getUid();
                     Map newRoot = new HashMap();
                     newRoot.put("Name",name);
@@ -218,13 +235,16 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
 
 
                     Toast.makeText(getApplicationContext(),"Register is successful",Toast.LENGTH_SHORT).show();
-                } else {
+                }
+                else {
                     if(task.getException() instanceof FirebaseAuthUserCollisionException)
                     {
+                        mProgress.dismiss();
                         Toast.makeText(getApplicationContext(),"User is already registered",Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
+                        mProgress.dismiss();
                         Toast.makeText(getApplicationContext(),"Error: "+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                     }
                 }
