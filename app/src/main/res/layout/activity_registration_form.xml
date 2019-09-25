@@ -211,60 +211,58 @@
                             />
 
                     </LinearLayout>
-                    <RadioGroup
-                        android:id="@+id/usetype_radiogroup_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:text="Usertype"/>
+                        <Spinner
+                            android:id="@+id/usetype_spinner_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
 
-                        >
-                        <RadioButton
-                            android:id="@+id/register_student_id"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/student"
-                            android:outlineSpotShadowColor="#FFFFFF"
-                            android:shadowColor="#FFFFFF"
-                            android:textSize="15dp"
-                            android:textColor="#312121"
-                            />
-                        <RadioButton
-                            android:id="@+id/register_teacher_id"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:outlineSpotShadowColor="#FFFFFF"
-                            android:shadowColor="#FFFFFF"
-                            android:text="@string/teacher"
-                            android:textSize="15dp"
-                            android:textColor="#312121"
-                            />
-                    </RadioGroup>
-                    <RadioGroup
-                        android:id="@+id/gender_radiogroup_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        >
-                        <RadioButton
-                            android:id="@+id/register_male_id"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/male"
-                            android:textSize="15dp"
-                            android:textColor="#1B33BB"
-                            android:outlineSpotShadowColor="#FFFFFF"
-                            android:shadowColor="#3F51B5"
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:textSize="18sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gender"/>
+                        <Spinner
+                            android:id="@+id/gendertype_spinner_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
 
-                            />
-                        <RadioButton
-                            android:id="@+id/register_female_id"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/female"
-                            android:textSize="15dp"
-                            android:outlineSpotShadowColor="#FFFFFF"
-                            android:shadowColor="#FFFFFF"
-                            android:textColor="#1B33BB"
-                            />
-                    </RadioGroup>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:textSize="18sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="District"/>
+                        <Spinner
+                            android:id="@+id/district_spinner_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
 

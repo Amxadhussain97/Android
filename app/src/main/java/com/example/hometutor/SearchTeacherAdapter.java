@@ -44,6 +44,7 @@ public class SearchTeacherAdapter extends RecyclerView.Adapter<SearchTeacherAdap
                 mContext.startActivity(intent);
             }
         });
+
     }
 
     @Override
@@ -54,7 +55,7 @@ public class SearchTeacherAdapter extends RecyclerView.Adapter<SearchTeacherAdap
         return mUsers.get(p);
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView username;
+        public TextView username,message;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             username=itemView.findViewById(R.id.teacher_name_id);

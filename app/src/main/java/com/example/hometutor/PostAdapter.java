@@ -48,7 +48,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myviewholder> 
             holder.message.setVisibility(View.GONE);
             holder.delete.setVisibility(View.VISIBLE);
         }
-        else holder.delete.setVisibility(View.GONE);
+        else {
+            holder.delete.setVisibility(View.GONE);
+        }
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,10 +67,18 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myviewholder> 
                 });
             }
         });
-        holder.message.setOnClickListener(new View.OnClickListener() {
+        holder.name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mcContext,Teacherprofile.class);
+                intent.putExtra("userid",postmodel.getOwner());
+                mcContext.startActivity(intent);
+            }
+        });
+        holder.message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mcContext,message_activity.class);
                 intent.putExtra("userid",postmodel.getOwner());
                 mcContext.startActivity(intent);
             }

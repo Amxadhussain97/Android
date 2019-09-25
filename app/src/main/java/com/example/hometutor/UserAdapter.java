@@ -37,12 +37,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final ChatListModel user = getItem(position);
         holder.username.setText(user.getName());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.username.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext,Teacherprofile.class);
-                intent.putExtra("userid",user.getId());
-                mContext.startActivity(intent);
+                Intent intentmsg = new Intent(mContext, message_activity.class);
+                intentmsg.putExtra("userid",user.getId());
+                mContext.startActivity(intentmsg);
             }
         });
     }

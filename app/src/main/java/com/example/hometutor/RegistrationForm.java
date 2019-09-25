@@ -9,11 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,9 +37,13 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
     private EditText registerPhoneEditText;
     private EditText registerAddressEditText;
     private RadioButton registerMale,registerFemale,registerTeacher,registerStudent;
-    private RadioGroup genderType,userType;
+    private Spinner disType,genderType,userType;
     private FirebaseAuth mAuth;
     private ProgressDialog mProgress;
+    String genderval,typeval,disval;
+    String[] gender = { "Male", "Female"};
+    String[] type = { "Teacher", "Student"};
+    String[] district = { "Sylhet", "Dhaka","Barishal","Khulna","Chittagong","Mymensingh","Rajshahi","Rangpur"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +51,15 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
         FirebaseApp.initializeApp(this);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-        genderType = (RadioGroup) findViewById(R.id.gender_radiogroup_id);
-        userType =  (RadioGroup) findViewById(R.id.usetype_radiogroup_id);
+        genderType =  findViewById(R.id.gendertype_spinner_id);
+        userType =   findViewById(R.id.usetype_spinner_id);
+        disType =   findViewById(R.id.district_spinner_id);
+        ArrayAdapter<String>  adapter = new ArrayAdapter<String>(this,R.layout.sample_view,R.id.textview_sample_id,gender);
+        genderType.setAdapter(adapter);
+        ArrayAdapter<String>  adapter2 = new ArrayAdapter<String>(this,R.layout.sample_view,R.id.textview_sample_id,type);
+        userType.setAdapter(adapter2);
+        ArrayAdapter<String>  adapter3 = new ArrayAdapter<String>(this,R.layout.sample_view,R.id.textview_sample_id,district);
+        disType.setAdapter(adapter3);
         registerInstitutionEditText = findViewById(R.id.register_institution_id);
         registerAddressEditText = findViewById(R.id.register_address_id);
         registerFullNameEditText = findViewById(R.id.register_fullname_id);
@@ -64,6 +77,10 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
+
+        genderval = genderType.getSelectedItem().toString();
+        typeval = userType.getSelectedItem().toString();
+        disval = disType.getSelectedItem().toString();
         mProgress.show();
         switch (v.getId())
         {
@@ -75,10 +92,8 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
         }
     }
     private void userregister() {
-        int gid = genderType.getCheckedRadioButtonId();
-        int tid = userType.getCheckedRadioButtonId();
-        registerFemale = (RadioButton) findViewById(R.id.register_female_id);
-        registerTeacher =(RadioButton)  findViewById(R.id.register_teacher_id);
+       // int gid = genderType.getCheckedRadioButtonId();
+        //int tid = userType.getCheckedRadioButtonId();
         final String name = registerFullNameEditText.getText().toString().trim();
         final String institution= registerInstitutionEditText.getText().toString().trim();
         final String address= registerAddressEditText.getText().toString().trim();
@@ -143,7 +158,7 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
             registerPasswordEditText.requestFocus();
             return;
         }
-        if(gid==-1)
+       /* if(gid==-1)
         {
             mProgress.dismiss();
             registerFemale.setError("Select a gender");
@@ -154,7 +169,7 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
             mProgress.dismiss();
             registerTeacher.setError("Select a type");
             return;
-        }
+        }*/
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -168,10 +183,11 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
                     newRoot.put("Institution",institution);
                     newRoot.put("Address",address);
                     newRoot.put("Phone",phone);
+                    newRoot.put("District",disval);
                     DatabaseReference current_user_db1 = FirebaseDatabase.getInstance().getReference()
                             .child("Users").child("Names").child(user_id);
                     current_user_db1.setValue(name);
-                    if(registerFemale.isChecked()){
+                    if(genderval=="Female"){
                             newRoot.put("Gender","Female");
                         }
                     else
@@ -182,7 +198,7 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
                             .child("Users").child("All").child(user_id);
                     newRoot.put("Id",user_id);
                     all_user_db.setValue(newRoot);
-                    if(registerTeacher.isChecked()){
+                    if(typeval=="Teacher"){
                             DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference()
                                     .child("Users").child("Teacher").child(user_id);
                             current_user_db.setValue(newRoot);

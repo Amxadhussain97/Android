@@ -40,7 +40,7 @@ public class ChatFragment extends AppCompatActivity {
         userlist = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
        // recyclerView.setAdapter(adapter);
-        ref = FirebaseDatabase.getInstance().getReference("Chats");
+        ref = FirebaseDatabase.getInstance().getReference("Chats/");
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override

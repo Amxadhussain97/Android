@@ -102,7 +102,7 @@ public class message_activity extends AppCompatActivity {
          hashmap.put("message",message);
          ref.child("Chats").push().setValue(hashmap);
      }
-     private  void readmessage(final String  myid , final String userid)
+     private  void readmessage(final String   myid , final String userid)
      {
          mchat = new ArrayList<>();
          dbreference = FirebaseDatabase.getInstance().getReference("Chats/");

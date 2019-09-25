@@ -48,7 +48,7 @@ public class Teacherprofile extends AppCompatActivity
     }
 
     private void loadprofileinfo2() {
-        DatabaseReference ref= FirebaseDatabase.getInstance().getReference("/Users/Teacher/"+userid);
+        DatabaseReference ref= FirebaseDatabase.getInstance().getReference("/Users/All/"+userid);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
