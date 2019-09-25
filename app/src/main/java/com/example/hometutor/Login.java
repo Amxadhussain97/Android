@@ -47,7 +47,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             mProgress.dismiss();
             startActivity(intent);
             finish();
-        }*/
+       . }*/
         mAuth = FirebaseAuth.getInstance();
         logInEmailEditText = findViewById(R.id.u_email_id);
         logInPasswordEditText = findViewById(R.id.password_id);
