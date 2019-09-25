@@ -42,8 +42,13 @@ public class teacher_dashboard extends AppCompatActivity implements View.OnClick
             case R.id.t_all_posts_id: {
                 Intent intent = new Intent(getApplicationContext(), PostActivity.class);
                 startActivity(intent);
+                break;
             }
             case R.id.t_sign_out_id: {
+                Intent intent = new Intent(getApplicationContext(),Login.class);
+                startActivity(intent);
+                finish();
+                break;
                  /*Intent intent = new Intent(this,Login.class);
                 startActivity(intent);
                 //finish();

@@ -41,6 +41,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             startActivity(new Intent(this,teacher_dashboard.class));
             finish();
         }*/
+       /* if (FirebaseAuth.getInstance().getCurrentUser() != null){
+
+            Intent intent = new Intent(getApplicationContext(),Student_Dashboard.class);
+            mProgress.dismiss();
+            startActivity(intent);
+            finish();
+        }*/
         mAuth = FirebaseAuth.getInstance();
         logInEmailEditText = findViewById(R.id.u_email_id);
         logInPasswordEditText = findViewById(R.id.password_id);
@@ -117,12 +124,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                 Intent intent = new Intent(getApplicationContext(),Student_Dashboard.class);
                                 mProgress.dismiss();
                                 startActivity(intent);
+                                finish();
                             }
                             else
                             {
                                 Intent intent = new Intent(getApplicationContext(),teacher_dashboard.class);
                                 mProgress.dismiss();
                                 startActivity(intent);
+                                finish();
                             }
                         }
 
