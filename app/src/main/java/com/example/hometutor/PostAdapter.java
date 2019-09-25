@@ -45,6 +45,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Myviewholder> 
         String  current_u_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
         if(postmodel.getOwner().equals(current_u_id))
         {
+            holder.message.setVisibility(View.GONE);
             holder.delete.setVisibility(View.VISIBLE);
         }
         else holder.delete.setVisibility(View.GONE);
