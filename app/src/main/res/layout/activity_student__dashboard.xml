@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/dashbgicon"
+    android:background="#6C7CDD"
     android:padding="10dp"
     tools:context=".Student_Dashboard">
 
