@@ -5,12 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".message_activity">
-
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/toolbar_id"
+        app:cardElevation="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="52dp">
+    <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="#FFFFFF"
         android:orientation="horizontal">
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/message_ac_profile_image_id"
@@ -28,11 +32,13 @@
             android:layout_marginLeft="0dp"
             android:text="Username"
             android:textSize="18dp"
-            android:textColor="#FFFFFF"
+            android:textColor="#3F51B5"
             android:textStyle="bold" />
 
     </LinearLayout>
+    </androidx.cardview.widget.CardView>
     <androidx.recyclerview.widget.RecyclerView
+        android:background="#DFE2EE"
         android:id="@+id/msg_recycler_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

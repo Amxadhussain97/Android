@@ -200,11 +200,18 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
                     newRoot.put("Id",user_id);
                     newRoot.put("Type",typeval);
                     all_user_db.setValue(newRoot);
-                    DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference()
-                            .child("Users").child("Teacher").child(user_id);
-                    current_user_db.setValue(newRoot);
+                    if(typeval=="Teacher") {
+                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference()
+                                .child("Users").child("Teacher").child(user_id);
+                        current_user_db.setValue(newRoot);
+                    }
+                    else
+                    {
+                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference()
+                                .child("Users").child("Student").child(user_id);
+                        current_user_db.setValue(newRoot);
+                    }
 
-                    current_user_db.setValue(newRoot);
                             mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {

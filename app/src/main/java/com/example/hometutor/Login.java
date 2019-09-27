@@ -29,7 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
     private EditText logInEmailEditText,logInPasswordEditText;
-    private TextView registerTextView;
+    private TextView registerTextView,forgetpass;
     private Button logInButton;
     private String now=null;
     String userid;
@@ -41,7 +41,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FirebaseApp.initializeApp(this);
-        sp = getSharedPreferences("login",MODE_PRIVATE);
+        //sp = getSharedPreferences("login",MODE_PRIVATE);
         /*if(sp.getBoolean("logged",false)){
             userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             System.out.println(userid);
@@ -86,12 +86,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             finish();
        . }*/
         mAuth = FirebaseAuth.getInstance();
+        forgetpass= findViewById(R.id.forget_pass_id);
         logInEmailEditText = findViewById(R.id.u_email_id);
         logInPasswordEditText = findViewById(R.id.password_id);
         registerTextView = findViewById(R.id.register_id);
         logInButton = findViewById(R.id.login_btn_id);
         logInButton.setOnClickListener(this);
         registerTextView.setOnClickListener(this);
+        forgetpass.setOnClickListener(this);
 
         mProgress=new ProgressDialog(this);
         mProgress.setTitle("Logging in...");
@@ -100,16 +102,22 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        mProgress.show();
+
         switch (v.getId())
         {
             case R.id.login_btn_id:
+                mProgress.show();
                 userLogin();
                 break;
             case R.id.register_id:
                 Intent intent = new Intent(getApplicationContext(),RegistrationForm.class);
                 startActivity(intent);
                 break;
+            case R.id.forget_pass_id:
+                Intent intent2 = new Intent(getApplicationContext(),ForgetpassActivity.class);
+                startActivity(intent2);
+                break;
+
 
         }
     }

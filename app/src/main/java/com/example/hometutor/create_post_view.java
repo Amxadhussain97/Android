@@ -3,6 +3,7 @@ package com.example.hometutor;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 //import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -54,6 +55,9 @@ public class create_post_view extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                  if(task.isSuccessful()){
                      Toast.makeText(create_post_view.this,"Post successful",Toast.LENGTH_SHORT).show();
+                     Intent intent = new Intent(getApplicationContext(),Student_Dashboard.class);
+                     startActivity(intent);
+                     finish();
                  }else
                         Toast.makeText(create_post_view.this,"Post failed",Toast.LENGTH_SHORT).show();
                     }
