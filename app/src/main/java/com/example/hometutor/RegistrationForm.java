@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -197,21 +198,38 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
                     DatabaseReference all_user_db = FirebaseDatabase.getInstance().getReference()
                             .child("Users").child("All").child(user_id);
                     newRoot.put("Id",user_id);
+                    newRoot.put("Type",typeval);
                     all_user_db.setValue(newRoot);
-                    if(typeval=="Teacher"){
-                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference()
-                                    .child("Users").child("Teacher").child(user_id);
-                            current_user_db.setValue(newRoot);
-                            Intent intent = new Intent(getApplicationContext(),teacher_dashboard.class);
-                            startActivity(intent);
-                        }
-                    else
-                        {
-                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Student").child(user_id);
-                            current_user_db.setValue(newRoot);
-                            Intent intent = new Intent(getApplicationContext(),Student_Dashboard.class);
-                            startActivity(intent);
-                        }
+                    DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference()
+                            .child("Users").child("Teacher").child(user_id);
+                    current_user_db.setValue(newRoot);
+
+                    current_user_db.setValue(newRoot);
+                            mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful())
+                                    {
+                                        Toast.makeText(RegistrationForm.this,"Registered successfully please check your email for verification",Toast.LENGTH_SHORT).show();
+
+                                        registerInstitutionEditText.setText("");
+                                        registerAddressEditText.setText("");
+                                        registerFullNameEditText.setText("");
+                                        registerEmailEditText.setText("");
+                                        registerPhoneEditText.setText("");
+                                        registerPasswordEditText.setText("");
+                                        registerConfirmPasswordEditText.setText("");
+                                        Intent intent = new Intent(getApplicationContext(),Login.class);
+                                        startActivity(intent);
+                                    }
+                                    else
+                                    {
+                                        Toast.makeText(RegistrationForm.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+
+
 
                    /* if(registerFemale.isChecked())
                     {
@@ -250,13 +268,14 @@ public class RegistrationForm extends AppCompatActivity implements View.OnClickL
 
 
 
-                    Toast.makeText(getApplicationContext(),"Register is successful",Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getApplicationContext(),"Register is successful",Toast.LENGTH_SHORT).show();
                 }
                 else {
                     if(task.getException() instanceof FirebaseAuthUserCollisionException)
                     {
                         mProgress.dismiss();
                         Toast.makeText(getApplicationContext(),"User is already registered",Toast.LENGTH_SHORT).show();
+
                     }
                     else
                     {

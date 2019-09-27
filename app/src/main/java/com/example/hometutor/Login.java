@@ -5,6 +5,7 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 //import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -30,6 +31,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private EditText logInEmailEditText,logInPasswordEditText;
     private TextView registerTextView;
     private Button logInButton;
+    private String now=null;
+    String userid;
+    SharedPreferences sp;
     private ProgressDialog mProgress;
     private FirebaseAuth mAuth;
     @Override
@@ -37,10 +41,43 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FirebaseApp.initializeApp(this);
-       /* if(FirebaseAuth.getInstance().getCurrentUser()!=null){
-            startActivity(new Intent(this,teacher_dashboard.class));
-            finish();
+        sp = getSharedPreferences("login",MODE_PRIVATE);
+        /*if(sp.getBoolean("logged",false)){
+            userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            System.out.println(userid);
+           DatabaseReference ref= FirebaseDatabase.getInstance().getReference("Users/All");
+           ref.addValueEventListener(new ValueEventListener() {
+               @Override
+               public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                   if(dataSnapshot!=null)
+                   {
+                       now = dataSnapshot.child("Type").getValue(String.class);
+                      // System.out.println(now);
+
+                   }
+               }
+
+               @Override
+               public void onCancelled(@NonNull DatabaseError databaseError) {
+
+               }
+           });
+            if(now=="Teacher") {
+                Intent intent = new Intent(getApplicationContext(),teacher_dashboard.class);
+                startActivity(intent);
+                finish();
+
+            }
+            else {
+                Intent intent = new Intent(getApplicationContext(),Student_Dashboard.class);
+                startActivity(intent);
+                finish();
+
+            }
+
+
         }*/
+
        /* if (FirebaseAuth.getInstance().getCurrentUser() != null){
 
             Intent intent = new Intent(getApplicationContext(),Student_Dashboard.class);
@@ -57,7 +94,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         registerTextView.setOnClickListener(this);
 
         mProgress=new ProgressDialog(this);
-        mProgress.setTitle("Loading...");
+        mProgress.setTitle("Logging in...");
         mProgress.setMessage("Please Wait...");
     }
 
@@ -114,33 +151,39 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
+                    mProgress.dismiss();
+                 if(mAuth.getCurrentUser().isEmailVerified()) {
+                     final String current_u_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                     DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Student");
+                     rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                         @Override
+                         public void onDataChange(@NonNull DataSnapshot snapshot) {
+                             if (snapshot.hasChild(current_u_id)) {
+                                 Intent intent = new Intent(getApplicationContext(), Student_Dashboard.class);
 
-                    final String  current_u_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Student");
-                    rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.hasChild(current_u_id)) {
-                                Intent intent = new Intent(getApplicationContext(),Student_Dashboard.class);
-                                mProgress.dismiss();
-                                startActivity(intent);
-                                finish();
-                            }
-                            else
-                            {
-                                Intent intent = new Intent(getApplicationContext(),teacher_dashboard.class);
-                                mProgress.dismiss();
-                                startActivity(intent);
-                                finish();
-                            }
-                        }
+                                 startActivity(intent);
+                                 sp.edit().putBoolean("logged", true).apply();
+                                 finish();
+                             } else {
+                                 Intent intent = new Intent(getApplicationContext(), teacher_dashboard.class);
+                                 mProgress.dismiss();
+                                 startActivity(intent);
+                                 sp.edit().putBoolean("logged", true).apply();
+                                 finish();
+                             }
+                         }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                         @Override
+                         public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                        }
+                         }
 
-                    });
+                     });
+                 }
+                 else
+                 {
+                     Toast.makeText(Login.this,"Please Verify Your Email",Toast.LENGTH_SHORT).show();
+                 }
                 }
                 else
                 {
