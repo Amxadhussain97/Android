@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ForgetpassActivity"></activity>
+        <activity android:name=".Welcome">
+        </activity>
+        <activity android:name=".ForgetpassActivity" />
         <activity android:name=".ChatFragment" />
         <activity android:name=".message_activity" />
         <activity android:name=".fragment_users" />

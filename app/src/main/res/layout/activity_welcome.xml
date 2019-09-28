@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    tools:context=".Welcome">
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:orientation="vertical"
+        android:background="@drawable/wel1">
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/l2"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:background="@drawable/wel2">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/get_id"
+            android:layout_width="99dp"
+            android:layout_height="41dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="110dp"
+            app:cardBackgroundColor="#3F51B5"
+            app:cardElevation="9dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Get In"
+                android:textColor="#FFFFFF"
+                android:textSize="15dp" />
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -4,6 +4,7 @@ import android.content.Intent;
 //import android.support.annotation.NonNull;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 //import android.support.v7.app.AppCompatActivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -32,6 +33,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private TextView registerTextView,forgetpass;
     private Button logInButton;
     private String now=null;
+    LightsLoader l;
     String userid;
     SharedPreferences sp;
     private ProgressDialog mProgress;
@@ -123,6 +125,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void userLogin() {
+
         String email = logInEmailEditText.getText().toString().trim();
         String password = logInPasswordEditText.getText().toString().trim();
 
@@ -159,6 +162,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
+
                     mProgress.dismiss();
                  if(mAuth.getCurrentUser().isEmailVerified()) {
                      final String current_u_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -170,13 +174,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                  Intent intent = new Intent(getApplicationContext(), Student_Dashboard.class);
 
                                  startActivity(intent);
-                                 sp.edit().putBoolean("logged", true).apply();
+                                 //sp.edit().putBoolean("logged", true).apply();
                                  finish();
                              } else {
                                  Intent intent = new Intent(getApplicationContext(), teacher_dashboard.class);
-                                 mProgress.dismiss();
+                                 //mProgress.dismiss();
                                  startActivity(intent);
-                                 sp.edit().putBoolean("logged", true).apply();
+                              //   sp.edit().putBoolean("logged", true).apply();
                                  finish();
                              }
                          }
