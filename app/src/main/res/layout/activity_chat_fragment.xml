@@ -10,15 +10,23 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         app:cardBackgroundColor="#2538A5">
+        <androidx.cardview.widget.CardView
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:cardCornerRadius="6dp"
+            app:cardBackgroundColor="#C3C7E6">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
              android:layout_gravity="center"
             android:gravity="center"
-            android:textColor="#FFFFFF"
+            android:textColor="#192D9C"
+            android:textStyle="bold"
             android:text="My Chat List">
 
         </TextView>
+       </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
 
 
@@ -33,5 +41,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chat_recycle_id"
         android:layout_width="match_parent"
+        android:outlineSpotShadowColor="@color/colorPrimaryDark"
         android:layout_height="wrap_content"/>
 </LinearLayout>

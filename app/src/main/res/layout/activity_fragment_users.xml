@@ -11,15 +11,23 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         app:cardBackgroundColor="#2538A5">
+        <androidx.cardview.widget.CardView
+            android:layout_width="160dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="6dp"
+            app:cardBackgroundColor="#C3C7E6"
+            android:layout_height="match_parent">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textColor="#1F38C5"
             android:text="Teacher List">
 
         </TextView>
+        </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
     <ProgressBar
         android:layout_gravity="center"
@@ -30,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <androidx.recyclerview.widget.RecyclerView
+        android:background="#C7C8D3"
         android:id="@+id/search_teacher_recyclerview"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,186 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#6C7CDD"
-    android:gravity="center"
-    android:padding="10dp"
-
-
-    tools:context=".Student_Dashboard">
-
-
+    android:background="#FCFBFB"
+    tools:context=".Student_Dashboard"
+    >
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/text_shape_stroke"
-
         >
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:gravity="center">
+            android:layout_height="620dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:background="@drawable/icontest"
+                android:orientation="vertical">
+
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
+                android:layout_width="270dp"
+                android:layout_height="340dp"
                 app:cardCornerRadius="10dp"
-                android:id="@+id/t_my_account_id"
-                android:layout_width="110dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp">
+                app:cardBackgroundColor="#E4E4E4"
+                app:cardElevation="24dp"
 
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="110dp"
+                android:background="#C52020">
                 <LinearLayout
-
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#F8F4F8"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:background="@drawable/oval_shape"
-                        android:padding="10dp"
-                        android:src="@drawable/icon_profile" />
 
-                    <TextView
-
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Account"
-                        android:textColor="#20438A"
-                        android:textStyle="bold"
+                        android:clipToPadding="false"
+                        android:gravity="center">
+
+                        <androidx.cardview.widget.CardView
+                            app:cardCornerRadius="10dp"
+                            android:id="@+id/t_my_account_id"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#F8F4F8"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="64dp"
+                                    android:layout_height="64dp"
+                                    android:background="@drawable/oval_shape"
+                                    android:padding="10dp"
+                                    android:src="@drawable/icon_profile" />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Account"
+                                    android:textColor="#20438A"
+                                    android:textStyle="bold"
 
 
-                        />
+                                    />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            app:cardCornerRadius="10dp"
+                            android:id="@+id/t_my_message_id"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#F8F4F8"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="64dp"
+                                    android:layout_height="64dp"
+                                    android:background="@drawable/oval_shape"
+                                    android:padding="10dp"
+                                    android:src="@drawable/icon_message" />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Message"
+                                    android:textColor="#20438A"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:gravity="center">
+
+                        <androidx.cardview.widget.CardView
+                            app:cardCornerRadius="10dp"
+                            android:id="@+id/t_all_posts_id"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#F9EEFA"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="64dp"
+                                    android:layout_height="64dp"
+                                    android:background="@drawable/oval_shape"
+                                    android:padding="10dp"
+                                    android:src="@drawable/create_post" />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Posts"
+                                    android:textColor="#20438A"
+                                    android:textStyle="bold"
+
+
+                                    />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            app:cardCornerRadius="10dp"
+                            android:id="@+id/t_sign_out_id"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#F9EEFA"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="64dp"
+                                    android:layout_height="64dp"
+                                    android:background="@drawable/oval_shape"
+                                    android:padding="10dp"
+                                    android:src="@drawable/sign_out" />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Sign Out"
+                                    android:textColor="#20438A"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+
+
+
+
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                app:cardCornerRadius="10dp"
-                android:id="@+id/t_my_message_id"
-                android:layout_width="110dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp">
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#F8F4F8"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:background="@drawable/oval_shape"
-                        android:padding="10dp"
-                        android:src="@drawable/icon_message" />
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Message"
-                        android:textColor="#20438A"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:gravity="center">
-
-            <androidx.cardview.widget.CardView
-                app:cardCornerRadius="10dp"
-                android:id="@+id/t_all_posts_id"
-                android:layout_width="110dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp">
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#F9EEFA"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:background="@drawable/oval_shape"
-                        android:padding="10dp"
-                        android:src="@drawable/timeline_icon24dp" />
-
-                    <TextView
-
-                        android:gravity="center"
-                        android:layout_width="67dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Posts"
-                        android:textColor="#20438A"
-                        android:textStyle="bold"
+        </RelativeLayout>
 
 
-                        />
-                </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                app:cardCornerRadius="10dp"
-                android:id="@+id/t_sign_out_id"
-                android:layout_width="110dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp">
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#F9EEFA"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:background="@drawable/oval_shape"
-                        android:padding="10dp"
-                        android:src="@drawable/sign_out" />
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Sign Out"
-                        android:textColor="#20438A"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
