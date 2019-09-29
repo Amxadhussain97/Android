@@ -25,7 +25,7 @@ public class PostActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ProgressBar progressBar;
     PostAdapter adapter;
-    String  userid;
+    String  userid,District;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,14 +75,38 @@ public class PostActivity extends AppCompatActivity {
                                                                }
                                                            });
                                                        } else {
+
+                                                           DatabaseReference refd=FirebaseDatabase.getInstance().getReference("Users/All/"+current_u_id);
+                                                           refd.addValueEventListener(new ValueEventListener() {
+                                                               @Override
+                                                               public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                                   if(dataSnapshot!=null )
+                                                                   {
+                                                                       for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                                                           if (snapshot.getKey().equals("District")) {
+                                                                               District = snapshot.getValue().toString();
+                                                                           }
+                                                                       }
+
+
+                                                                   }
+                                                               }
+
+                                                               @Override
+                                                               public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                               }
+                                                           });
+                                                           System.out.println(District);
                                                            ref.addValueEventListener(new ValueEventListener() {
                                                                @Override
                                                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                                    adapter.clearall();
-                                                                   if(dataSnapshot!=null){
+                                                                   if (dataSnapshot != null) {
+                                                                       // Log.d("now","bitre dukse");
                                                                        //System.out.println(dataSnapshot);
-                                                                       for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                                                                           Postmodel postmodel=snapshot.getValue(Postmodel.class);
+                                                                       for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                                                           Postmodel postmodel = snapshot.getValue(Postmodel.class);
                                                                            postmodel.setPostid(snapshot.getKey());
                                                                            adapter.additem(postmodel);
                                                                        }
@@ -94,8 +118,7 @@ public class PostActivity extends AppCompatActivity {
 
                                                                @Override
                                                                public void onCancelled(@NonNull DatabaseError databaseError) {
-                                                                   progressBar.setVisibility(View.GONE);
-                                                                   Toast.makeText(PostActivity.this,"Loading Failed "+databaseError.getMessage(),Toast.LENGTH_SHORT).show();
+
                                                                }
                                                            });
                                                        }

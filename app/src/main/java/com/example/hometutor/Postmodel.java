@@ -4,6 +4,7 @@ import android.widget.EditText;
 
 public class Postmodel {
     String poster;
+    String district;
    // String location;
     String post;
    /* String gender;
@@ -14,6 +15,14 @@ public class Postmodel {
         return postid;
     }
 
+    public Postmodel(String district,  String post,String poster, String owner, Long posttime) {
+        this.district = district;
+        this.poster = poster;
+        this.post = post;
+        this.owner = owner;
+        this.posttime = posttime;
+    }
+
     public void setPostid(String postid) {
         this.postid = postid;
     }
@@ -22,15 +31,12 @@ public class Postmodel {
     //salry;
     Long posttime;
 
-    public Postmodel(String post,String poster, String owner,Long posttime) {
-        this.post =post;
-        this.poster = poster;
-       // this.location = location;
-      /*  this.gender = gender;
-        this.clas = clas;*/
-        this.owner = owner;
-       // this.salry = salry;
-        this.posttime = posttime;
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
     public String getPoster() {

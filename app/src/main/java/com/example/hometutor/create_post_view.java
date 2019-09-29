@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class create_post_view extends AppCompatActivity {
    private TextView cp_post,cp_salary,cp_class,cp_gender,cp_place;
-   private String name;
+   private String name,district;
    String current_u_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +30,21 @@ public class create_post_view extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         cp_post = findViewById(R.id.typepostid);
         current_u_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Users/Names/"+FirebaseAuth.getInstance().getCurrentUser().getUid());
+        DatabaseReference ref=FirebaseDatabase.getInstance().getReference("Users/All/"+current_u_id);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot!=null)
+                if(dataSnapshot!=null )
                 {
-                    name= dataSnapshot.getValue(String.class);
+                    for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        if (snapshot.getKey().equals("Name")) {
+                            name = snapshot.getValue().toString();
+                        } else if (snapshot.getKey().equals("District")) {
+                           district = snapshot.getValue().toString();
+                        }
+                    }
+
+
                 }
             }
 
@@ -49,7 +57,7 @@ public class create_post_view extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DatabaseReference ref=FirebaseDatabase.getInstance().getReference("/posts");
-                Postmodel postmodel=new Postmodel(cp_post.getText().toString(),name, FirebaseAuth.getInstance().getCurrentUser().getUid(),System.currentTimeMillis());
+                Postmodel postmodel=new Postmodel(district,cp_post.getText().toString(),name, FirebaseAuth.getInstance().getCurrentUser().getUid(),System.currentTimeMillis());
                 ref.push().setValue(postmodel).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

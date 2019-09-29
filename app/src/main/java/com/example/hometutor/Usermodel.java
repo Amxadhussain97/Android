@@ -1,15 +1,13 @@
 package com.example.hometutor;
 
 public class Usermodel {
-    private  String Name;
+    private  String Name,District;
     private  String Id;
 
-    public Usermodel(String name, String id) {
+    public Usermodel(String name, String district, String id) {
         Name = name;
-        this.Id = id;
-    }
-    public Usermodel() {
-
+        District = district;
+        Id = id;
     }
 
     public String getName() {
@@ -20,11 +18,19 @@ public class Usermodel {
         Name = name;
     }
 
+    public String getDistrict() {
+        return District;
+    }
+
+    public void setDistrict(String district) {
+        District = district;
+    }
+
     public String getId() {
         return Id;
     }
 
     public void setId(String id) {
-        this.Id = id;
+        Id = id;
     }
 }
