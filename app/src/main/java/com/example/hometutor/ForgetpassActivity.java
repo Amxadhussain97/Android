@@ -39,7 +39,8 @@ public class ForgetpassActivity extends AppCompatActivity {
                         if(task.isSuccessful())
                         {
                             progressbar.setVisibility(View.GONE);
-                            Toast.makeText(ForgetpassActivity.this,"Password send to your email",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ForgetpassActivity.this,"Please check your email to reset the password",
+                                    Toast.LENGTH_LONG).show();
 
 
                         }

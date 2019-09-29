@@ -31,13 +31,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter Your Email"/>
+
             <Button
                 android:id="@+id/fp_btn_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Send Password"
-                android:textColor="#FFFFFF"
-                android:background="#455BDB"/>
+                android:background="#455BDB"
+                android:text="Reset Password"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
 
 
