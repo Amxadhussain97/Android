@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ChatFragment">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:cardBackgroundColor="#2538A5">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:text="My Chat List">
+
+        </TextView>
+    </androidx.cardview.widget.CardView>
+
+
     <ProgressBar
+        android:layout_gravity="center"
         android:id="@+id/chat_progressbar_id"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -15,5 +33,5 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chat_recycle_id"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="wrap_content"/>
+</LinearLayout>

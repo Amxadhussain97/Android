@@ -2,6 +2,7 @@ package com.example.hometutor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,6 +31,7 @@ public class fragment_users extends AppCompatActivity {
         recyclerView = findViewById(R.id.search_teacher_recyclerview);
         progressBar = findViewById(R.id.search_teacher_progressbar);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         adapter = new SearchTeacherAdapter(this);
         recyclerView.setAdapter(adapter);
 

@@ -2,6 +2,7 @@ package com.example.hometutor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,11 +36,13 @@ public class ChatFragment extends AppCompatActivity {
         setContentView(R.layout.activity_chat_fragment);
         recyclerView = findViewById(R.id.chat_recycle_id);
         recyclerView.setHasFixedSize(true);
+        adapter = new UserAdapter(this);
         progressBar = findViewById(R.id.chat_progressbar_id);
         fuser = FirebaseAuth.getInstance().getCurrentUser();
         userlist = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-       // recyclerView.setAdapter(adapter);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        recyclerView.setAdapter(adapter);
         ref = FirebaseDatabase.getInstance().getReference("Chats/");
 
         ref.addValueEventListener(new ValueEventListener() {
@@ -50,12 +53,12 @@ public class ChatFragment extends AppCompatActivity {
                     Chat chat = snapshot.getValue(Chat.class);
                     if(chat.getSender().equals(fuser.getUid()))
                     {
-
+                        System.out.println(chat.getReceiver());
                         userlist.add(chat.getReceiver());
                     }
                     if(chat.getReceiver().equals(fuser.getUid()))
                     {
-                       // store.put(chat.getSender(),"Yes");
+                        System.out.println(chat.getSender());
                         userlist.add(chat.getSender());
                     }
                 }
@@ -70,7 +73,7 @@ public class ChatFragment extends AppCompatActivity {
     }
     private void readchats() {
         musers = new ArrayList<>();
-        ref = FirebaseDatabase.getInstance().getReference("Users/All/");
+       ref = FirebaseDatabase.getInstance().getReference("Users/All/");
       //  final Map<String,String> store = new HashMap<>();
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -82,7 +85,9 @@ public class ChatFragment extends AppCompatActivity {
                     {
                         if(user.getId().equals(id))
                         {
-                            if(musers.size()!=0)
+                            adapter.additem(user);
+                            break;
+                            /*if(musers.size()!=0)
                             {
                                 for(ChatListModel  user1 : musers)
                                 {
@@ -95,12 +100,12 @@ public class ChatFragment extends AppCompatActivity {
                             else
                             {
                                 musers.add(user);
-                            }
+                            }*/
                         }
                     }
                 }
-                adapter  = new UserAdapter(musers,getApplicationContext());
-                recyclerView.setAdapter(adapter);
+                //adapter  = new UserAdapter(musers,getApplicationContext());
+              //  recyclerView.setAdapter(adapter);
                 progressBar.setVisibility(View.GONE);
             }
 

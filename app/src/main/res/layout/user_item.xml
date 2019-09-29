@@ -9,24 +9,26 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="10dp"
+        app:cardCornerRadius="1dp"
+
+        app:cardElevation="1dp"
           >
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/user_image_id"
             android:layout_marginTop="5dp"
-            android:layout_width="30dp"
-            android:layout_height="45dp"
+            android:layout_width="25dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="12dp"
             android:src="@drawable/user_icon"
             />
 
         <TextView
             android:id="@+id/teacher_name_id"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Abdull Goffar Maruf"
             android:textSize="13dp"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="13dp"
             android:layout_marginLeft="45dp"
             android:textColor="#F5233186">
 

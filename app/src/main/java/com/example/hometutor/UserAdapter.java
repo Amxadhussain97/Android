@@ -20,8 +20,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     // private List<SearchTeacherModel>mUsers;
     ArrayList<ChatListModel> mUsers=new ArrayList<>();
 
-    public UserAdapter(ArrayList<ChatListModel>mUsers,Context mContext) {
-        this.mUsers = mUsers;
+    public UserAdapter(Context mContext) {
         this.mContext = mContext;
     }
 
@@ -37,7 +36,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final ChatListModel user = getItem(position);
         holder.username.setText(user.getName());
-        holder.username.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentmsg = new Intent(mContext, message_activity.class);
