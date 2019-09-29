@@ -3,6 +3,7 @@ package com.example.hometutor;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,6 +37,7 @@ public class PostActivity extends AppCompatActivity {
         userid =FirebaseAuth.getInstance().getCurrentUser().getUid();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new PostAdapter(this);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(adapter);
         loaddata();
     }

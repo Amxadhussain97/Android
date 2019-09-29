@@ -37,6 +37,8 @@ public class teacher_dashboard extends AppCompatActivity implements View.OnClick
                 break;
             }
             case R.id.t_my_message_id: {
+                Intent intent = new Intent(getApplicationContext(),ChatFragment.class);
+                startActivity(intent);
                 break;
             }
             case R.id.t_all_posts_id: {

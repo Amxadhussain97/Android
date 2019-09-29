@@ -9,7 +9,10 @@ public class Usermodel {
         District = district;
         Id = id;
     }
+    public Usermodel()
+    {
 
+    }
     public String getName() {
         return Name;
     }
